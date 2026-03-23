@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/ui/BlogCard.jsx", "app/blog/PostsSection.jsx", "app/about-us/page.jsx", "app/blog/page.jsx", "app/careers/page.jsx", "components/positions.jsx", "app/portfolio/page.jsx", "app/page.jsx", "app/services/page.jsx", "app/services/desktop-application-development/page.jsx", "app/services/design-and-markup/page.jsx", "components/ui/toast.jsx", "components/HireDropdown.jsx", "components/Header.jsx", "app/layout.jsx", "components/HireDeveloperModal.jsx"],
+  "exclude": ["node_modules"]
+}

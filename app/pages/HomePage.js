@@ -1,0 +1,709 @@
+"use client";
+
+import Link from 'next/link';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { ChevronDown, } from 'lucide-react';
+import ImageCarousel from '@/components/ImageCarousel';
+import AnimatedCounter from '@/components/AnimatedCounter'
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { useState } from 'react';
+import ScheduleCallButton from '@/components/ScheduleCallButton';
+import { HireDeveloperModal } from '@/components/HireDeveloperModal';
+
+
+import {
+  ArrowRight,
+  Code,
+  Smartphone,
+  Globe,
+  Database,
+  Shield,
+  Zap,
+  Users,
+  Award,
+  CheckCircle,
+  Star,
+  TrendingUp,
+  Clock,
+  Target,
+  Lightbulb,
+  PlayCircle,
+  Sparkles,
+  Car,
+  Check,
+  PenTool,
+  Megaphone,
+  Layers,
+  Cpu
+} from 'lucide-react';
+
+
+export default function Home() {
+  const [selectedTestimonial, setSelectedTestimonial] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isHireModalOpen, setIsHireModalOpen] = useState(false);
+  const [selectedDeveloper, setSelectedDeveloper] = useState('');
+  const services = [
+    {
+      icon: <Users className="w-8 h-8 text-indigo-600" />,
+      title: "Dedicated Development Teams",
+      description: "Hire skilled developers who work as your extended team.",
+      link: "/dedicated-development-teams"
+    },
+    {
+      icon: <Layers className="w-8 h-8 text-blue-600" />,
+      title: "SaaS Product Development",
+      description: "We build scalable SaaS platforms from MVP to scale.",
+      link: "/saas-product-development"
+    },
+    {
+      icon: <Cpu className="w-8 h-8 text-cyan-600" />,
+      title: "AI & Automation Solutions",
+      description: "Integrate AI and automation into your business.",
+      link: "/ai-automation-solutions"
+    },
+    {
+      icon: <Code className="w-8 h-8 text-blue-600" />,
+      title: "Custom Software Development",
+      description: "Tailored solutions built to meet your specific business requirements and scale with growth.",
+      link: "/custom-software-development"
+    },
+    {
+      icon: <Smartphone className="w-8 h-8 text-purple-600" />,
+      title: "Mobile App Development",
+      description: "Native and cross-platform mobile applications for iOS and Android platforms.",
+      link: "/mobile-apps-development"
+    },
+    {
+      icon: <Globe className="w-8 h-8 text-green-600" />,
+      title: "Web Development",
+      description: "Modern, responsive websites and web applications optimized for performance.",
+      link: "/web-development"
+    },
+    {
+      icon: <PenTool className="w-8 h-8 text-pink-600" />,
+      title: "UI/UX Design",
+      description: "User-centered interfaces and experiences that drive engagement and conversions.",
+      link: "/design-and-markup"
+    },
+    {
+      icon: <Database className="w-8 h-8 text-orange-600" />,
+      title: "Cloud Solutions",
+      description: "Scalable cloud infrastructure and migration services for modern businesses.",
+      link: "/cloud"
+    },
+
+    {
+      icon: <Megaphone className="w-8 h-8 text-blue-400" />,
+      title: "Internet Marketing",
+      description: "SEO, PPC, and social media strategies to grow your online presence.",
+      link: "/internet-marketing"
+    },
+  ];
+
+  const features = [
+    {
+      icon: <TrendingUp className="w-6 h-6 text-blue-600" />,
+      title: "Proven Track Record",
+      description: "200+ successful projects delivered across various industries"
+    },
+    {
+      icon: <Clock className="w-6 h-6 text-green-600" />,
+      title: "On-Time Delivery",
+      description: "98% of projects delivered on schedule with quality assurance"
+    },
+    {
+      icon: <Target className="w-6 h-6 text-purple-600" />,
+      title: "Goal-Oriented",
+      description: "Focused on achieving your business objectives and ROI"
+    },
+    {
+      icon: <Lightbulb className="w-6 h-6 text-orange-600" />,
+      title: "Innovation First",
+      description: "Cutting-edge technologies and innovative solutions"
+    }
+  ];
+
+  const industries = [
+    {
+      name: "SaaS Startups",
+      icon: (
+        <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M4 4h16v4H4V4zm0 6h16v10H4V10zm2 2v6h12v-6H6z" />
+        </svg>
+      ),
+    },
+    {
+      name: "FinTech Solutions",
+      icon: (
+        <svg className="w-5 h-5 text-blue-800" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 6h-8V4c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v2H2c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10-2h2v2h-2V4zM4 6h4v2H4V6z" />
+        </svg>
+      ),
+    },
+    {
+      name: "HealthTech",
+      icon: (
+        <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+      ),
+    },
+    {
+      name: "E-Commerce",
+      icon: (
+        <svg className="w-5 h-5 text-blue-700" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+        </svg>
+      ),
+    },
+  ];
+
+  const testimonials = [
+    {
+      name: "Dan",
+      role: "President at DVO, United States",
+      content: "Over the years, my company has worked with quite a few different software development firms in India. PickZy is definitely the best. The software engineers at PickZy are more experienced and capable than any other firm. But, the thing we value most about PickZy is the get-the-job-done mentality instilled by the company President. PickZy has gone above and beyond the call of duty to help us meet really tight deadlines. They work odd hours to accomodate our needs. And, they do what it takes to get the job done. I'm SO glad we discovered PickZy! In a nutshell, PickZy does a really good job of trying to understand the big picture and deliver solutions. Rather than simply providing a high quality software development service, PickZy strives to understand your goals and objectives and help you achieve them. They're more of a software development partner. I highly recommend PickZy Software.",
+      rating: 5,
+      image: "/client/Dan DVO.png"
+    },
+    {
+      name: "Steve Lambert",
+      role: "United States",
+      content: "PickZy continues assisted me with Android development and did such an excellent job that we chose them to assist us with an addition to our existing website. They did a great job, maintained good communication, and delivered exactly what we asked for in a timely manner. Yet another excellent job by PickZy Software! I'm so impressed that we're now moving onto developing a Windows Desktop platform app that's based off the Android app that they developed.",
+      rating: 5,
+      image: "/client/Equal-I.png"
+    },
+    {
+      name: "Douglas Johnson",
+      role: "United States",
+      content: "The project has been in the App store since May, 2014 and has been running with very few bugs (https://itunes.apple.com/us/app/art-models/id860168891). Any problems we have found have been fixed quickly. Any improvements we have asked for were delivered quickly and exactly as designed. We were very impressed with the speed with which you were able to get the cryptographic functions of the app written in Objective C to interoperate with our back end code written in C#. That seemed like it was going to be a difficult task. Everyone at PickZy has been easy to communicate with and all business transactions (delivering code, accepting payments, etc.) have been very fair. Our customers have liked the app and it has gotten good reviews in the App Store.",
+      rating: 5,
+      image: "/client/Art Model.jpg"
+    },
+    {
+      name: "Waheed Iqbal",
+      role: "CEO, Pakistan",
+      content: "I know Ratheesh for the last 6 months.This guy is amazing with respect to his in-depth technical knowledge and his problem solving skills. He has vast knowledge of Software Development, with brilliant presentation skills and extremely friendly and cooperative attitude for his customers.",
+      rating: 5,
+      image: "/client/Health mirror.jpg"
+    },
+    {
+      name: "Douglas Campbell",
+      role: "United States",
+      content: "Management and Team Members at PickZy Software LTD were knowledgeable and creative throughout the project. I will continue working with them and would recommend them for your outsourcing needs. Thumbs -Up",
+      rating: 5,
+      image: "/client/dummy.png"
+    },
+    {
+      name: "Felix Santos",
+      role: "United States",
+      content: "A++ I haven't met anyone like pickzysoftware. Not only they're on top of everything, but their attention to detail is beyond my expectation. I will def. work with them again.",
+      rating: 5,
+      image: "/client/dummy.png"
+    },
+    {
+      name: "Stavarengo",
+      role: "United States",
+      content: "I approached PickZy to get done some simple improvements in our iOS app. They were highly professional and gave me fast feedbacks awalys I asked for.",
+      rating: 5,
+      image: "/client/dummy.png"
+    },
+    {
+      name: "Bryan Barclay",
+      role: "United States",
+      content: "Incredible job! As always, the PickZy team always goes above and beyond my expectations. I have them completing another job for me now as we speak and Im getting ready to hire them for another. This is a top notch team of experts that can complete any task and they are very easy to communicate with.",
+      rating: 5,
+      image: "/client/dummy.png"
+    },
+    {
+      name: "Bryan Barclay",
+      role: "United States",
+      content: "Another great job completed promptly. Already hired for the next one and working out the details for another future job now.",
+      rating: 5,
+      image: "/client/dummy.png"
+    }
+  ];
+
+  const handleSeeMore = (testimonial) => {
+    setSelectedTestimonial(testimonial);
+    setIsModalOpen(true);
+  };
+
+  // Developer types for Hire dropdown
+  const developerTypes = [
+    'iOS Developer',
+    'Android Developer',
+    'React Native Developer',
+    'Flutter Developer',
+    'Node.js Developer',
+    'Python Developer',
+    'UI/UX Designer',
+    'Full Stack Developer',
+    'Laravel Developer',
+    'Angular Developer'
+  ];
+
+  const openHireModal = (developer = '') => {
+    setSelectedDeveloper(developer);
+    setIsHireModalOpen(true);
+  };
+
+
+
+  return (
+    <div className="min-h-screen relative homepage"
+      style={{
+        backgroundImage: "url('/assets/frame.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
+      <div className="absolute inset-0 bg-black/0"></div>
+
+      {/* Hero Section */}
+      <div className="relative z-10">
+        <section className="relative flex items-center justify-center min-h-[90vh] sm:min-h-[calc(100vh-var(--navbar-height))] w-full overflow-hidden home-hero">
+          {/* Background Layers - Contained within hero section */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src="/assets/hero/home_hero.jpg"
+              alt="Hero background"
+              className="w-full h-full object-cover"
+              loading="eager"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-900/30"></div>
+            <div className="absolute inset-0 bg-[url('https://assets.website-files.com/5f58a4aec3a7b3266b286abe/5f58a4aec3a7b38b9e286b1a_pattern-grey.svg')] bg-repeat opacity-70" />
+          </div>
+
+          {/* Hero Content - Container with safe padding */}
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16 lg:py-20 xl:py-24">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 sm:gap-2 items-center">
+              {/* Left Column - Text */}
+              <div className="order-1 lg:order-1">
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white/80 px-3 py-1 rounded-full mb-3 sm:mb-5 md:mb-6 border border-white/20 text-xs sm:text-sm">
+                  <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-300" />
+                  <span>Innovating Since 2011</span>
+                </div>
+
+                {/* Heading */}
+                <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-5 leading-tight" data-aos="fade-up">
+                  Dedicated Development Teams for {" "}
+
+                  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent  mt-1 sm:mt-3">
+                    SaaS & Digital Partners
+                  </span>
+                </h1>
+
+                {/* Description */}
+                <p className="text-base sm:text-lg md:text-xl text-white/90 mb-4 sm:mb-8 leading-relaxed max-w-lg" data-aos="fade-left">
+                  Build scalable platforms faster with expert Node js, React, and AI engineers as an extension of your team.
+                </p>
+
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-2 mb-4 sm:mb-8" >
+                  <ScheduleCallButton
+                    btnName='Book Free Consultation '
+                    className="text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white"
+
+                  />
+
+
+                  <Button
+                    variant="outline"
+                    className="text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3 border-white/30 hover:bg-white/10 hover:text-white"
+                    asChild
+                  >
+                    <Link href="/portfolio">View Case Studies</Link>
+                  </Button>
+                </div>
+
+                {/* Features */}
+                <div className="flex flex-wrap gap-1 sm:gap-3 text-xs sm:text-sm text-white/80">
+                  {["Industry-leading Quality", "Dedicated Support", "Agile Development"].map((feature, i) => (
+                    <div key={i} className="flex items-center bg-white/5 backdrop-blur-sm px-2 py-1 sm:px-3 sm:py-1.5 rounded-md">
+                      <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 text-green-400 mr-1 sm:mr-2" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right Column - Image */}
+              <div className="order-2 lg:order-2 mt-4 sm:mt-10 md:mt-0">
+                <div className="relative">
+                  <ImageCarousel />
+                  {/* Tech Logos */}
+                  <div className="absolute -bottom-4 right-0 flex gap-2 bg-white/10 backdrop-blur-sm p-1 sm:p-2 rounded-full border border-white/20">
+                    {["react", "nodejs", "nextjs"].map((tech) => (
+                      <img
+                        key={tech}
+                        src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${tech}/${tech}-original.svg`}
+                        className="h-4 w-4 sm:h-6 sm:w-6"
+                        alt={tech}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 lg:hidden">
+            <ChevronDown className="h-5 w-5 text-white animate-bounce" />
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <section className="py-12 sm:py-20 bg-gray-50 home-services">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+              className="text-center mb-10 sm:mb-16"
+              data-aos="fade-up"
+            >
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Our Services</h2>
+              <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+                From mobile app to smart websites, bold design to digital marketing, we build everything your business need to stand out and scale fast
+              </p>
+            </div>
+
+            <div className="home-services-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {services.map((service, index) => (
+                <Card
+                  key={index}
+                  className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg"
+                  data-aos="fade-up"
+                  data-aos-mirror="true"
+                >
+                  <CardHeader className="text-center pb-3 sm:pb-4">
+                    <div className="mx-auto mb-3 sm:mb-4 p-2 sm:p-3 bg-gray-50 rounded-full w-fit group-hover:bg-gradient-to-r group-hover:from-blue-50 group-hover:to-purple-50 transition-all duration-300">
+                      {service.icon}
+                    </div>
+                    <CardTitle className="text-lg sm:text-xl mb-1 sm:mb-2">{service.title}</CardTitle>
+                    <CardDescription className="text-gray-600 text-sm sm:text-base">
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <Button variant="outline" className="group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 text-sm sm:text-base" asChild>
+                      <Link href={service.link} className='learnmore'>Learn More</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <div
+              className="text-center mt-8 sm:mt-12"
+              data-aos="fade-up"
+            >
+              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-sm sm:text-base" asChild>
+                <Link href="/services">View All Services</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* hiring section */}
+
+        {/* Improved Hiring Section with Site Theme Colors */}
+        <section className="py-12 sm:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-500/5 via-white to-purple-600/3 p-6 sm:p-10 lg:p-14 border border-blue-200/30 shadow-lg">
+
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-400/15 to-transparent rounded-full blur-3xl -z-10"></div>
+              <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-gradient-to-tr from-blue-400/5 to-transparent rounded-full blur-3xl -z-10"></div>
+
+              {/* Background Illustration (right side) */}
+              <div className="absolute right-0 top-0 h-full w-1/2 hidden md:block opacity-80">
+                <img
+                  src="/assets/images/cta-illustration1.jpg"
+                  alt="Developers Illustration"
+                  className="h-full w-full object-contain"
+                />
+              </div>
+
+              <div className="relative z-10 max-w-2xl">
+                {/* Heading */}
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+                  Work with Developers Like Your In-House Team
+                </h2>
+
+                {/* Subtitle */}
+                <p className="text-gray-600 text-sm sm:text-base mb-6 sm:mb-8">
+                  Get dedicated engineers seamlessly integrated with your workflow
+                </p>
+
+                {/* Points with Blue-Purple Checkmarks */}
+                <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                  {[
+                    "Dedicated engineers for your project",
+                    "Flexible monthly engagement",
+                    "Direct collaboration with your team"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center text-gray-700 text-sm sm:text-base">
+                      <div className="flex-shrink-0 h-5 w-5 sm:h-6 sm:w-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center mr-3">
+                        <Check className="text-white h-3 w-3 sm:h-4 sm:w-4" strokeWidth={3} />
+                      </div>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA Button with Site Theme */}
+                <Button
+                  className="text-sm sm:text-base px-4 py-2 sm:px-8 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() => openHireModal()}
+                >
+                  <span className="inline-flex items-center gap-2">
+                    Hire Dedicated Developers
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+                  </span>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4">
+            {/* Section Header with Horizontal Lines */}
+            <div className="flex items-center justify-center mb-12">
+              <div className="hidden sm:block h-px bg-gradient-to-r from-transparent to-gray-300 flex-grow max-w-[100px]"></div>
+              <h2 className="mx-6 text-2xl md:text-3xl font-bold text-[#002B5B]">
+                Industries We Serve
+              </h2>
+              <div className="hidden sm:block h-px bg-gradient-to-l from-transparent to-gray-300 flex-grow max-w-[100px]"></div>
+            </div>
+
+            {/* Horizontal Pills Grid */}
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+              {industries.map((industry, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 px-6 py-4 bg-white rounded-lg border border-gray-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow duration-300 cursor-default min-w-[200px]"
+                >
+                  <div className="flex-shrink-0">
+                    {industry.icon}
+                  </div>
+                  <span className="text-[#002B5B] font-semibold text-sm sm:text-base">
+                    {industry.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="home-stats py-12 sm:py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white home-stats">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center">
+              {[
+                { value: "300+", label: "Projects Completed" },
+                { value: "200+", label: "Happy Clients" },
+                { value: "13+", label: "Years Experience" },
+                { value: "24/7", label: "Support Available" }
+              ].map((stat, index) => (
+                <div
+                  key={index}
+                  data-aos="zoom-in"
+                  data-aos-mirror="true"
+                  className="text-center p-3 sm:p-4"
+                >
+                  <AnimatedCounter value={stat.value} duration={4} classname="text-2xl sm:text-4xl font-bold text-white" />
+                  <div className="text-blue-100 mt-1 sm:mt-2 text-xs sm:text-sm">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="home-testimonials py-12 sm:py-20 bg-white/60 home-testimonials">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10 sm:mb-16" data-aos="fade-up">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4" data-aos="fade-right">
+                WHAT OUR CLIENTS SAY
+              </h2>
+              <div className="separator mx-auto w-16 sm:w-20 h-1 bg-blue-500 mb-4 sm:mb-6"></div>
+              <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-left">
+                Don't just take our word for it. Here's what our satisfied clients have to say about our services.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
+              {testimonials.map((testimonial, index) => (
+                <Card
+                  key={index}
+                  className="text-center shadow-lg border-0 hover:shadow-xl transition-shadow duration-300"
+                  data-aos="fade-up"
+                  data-aos-mirror="true"
+                >
+                  <CardContent className="p-4 sm:p-6 h-full flex flex-col">
+                    <div className="flex justify-center mb-3 sm:mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    <p className="text-gray-600 mb-4 sm:mb-6 italic flex-grow line-clamp-5 text-sm sm:text-base">
+                      "{testimonial.content}"
+                    </p>
+                    <button
+                      onClick={() => handleSeeMore(testimonial)}
+                      className="text-blue-600 hover:text-blue-800 text-xs sm:text-sm font-medium mt-auto"
+                    >
+                      See More
+                    </button>
+                    <div className="flex items-center justify-center space-x-2 sm:space-x-3 mt-3 sm:mt-4">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
+                      />
+                      <div className="text-left">
+                        <div className="font-semibold text-gray-900 text-sm sm:text-base">{testimonial.name}</div>
+                        <div className="text-xs sm:text-sm text-gray-600">{testimonial.role}</div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
+        {/* Testimonial Modal */}
+        <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+          <DialogContent className="max-w-2xl">{/* Testimonial Modal */}
+            <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+              <DialogContent
+                className="
+        w-[95%] sm:w-[90%] md:w-[80%] lg:w-[70%] 
+        max-w-lg sm:max-w-xl md:max-w-2xl 
+        px-4 sm:px-6 md:px-8 py-6
+        rounded-2xl
+        max-h-[90vh] overflow-y-auto
+      "
+              >
+                {selectedTestimonial && (
+                  <>
+                    <DialogHeader>
+                      <DialogTitle className="text-lg sm:text-xl md:text-2xl text-center">
+                        Client Testimonial
+                      </DialogTitle>
+                    </DialogHeader>
+
+                    {/* Rating Stars */}
+                    <div className="flex justify-center mb-4">
+                      {[...Array(selectedTestimonial.rating)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 fill-yellow-400 text-yellow-400"
+                        />
+                      ))}
+                    </div>
+
+                    {/* Content */}
+                    <p className="text-gray-700 mb-6 italic text-sm sm:text-base md:text-lg text-center">
+                      "{selectedTestimonial.content}"
+                    </p>
+
+                    {/* Author */}
+                    <div className="flex items-center justify-center space-x-3 mt-6">
+                      <img
+                        src={selectedTestimonial.image}
+                        alt={selectedTestimonial.name}
+                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
+                      />
+                      <div className="text-center sm:text-left">
+                        <div className="font-semibold text-gray-900 text-sm sm:text-base md:text-lg">
+                          {selectedTestimonial.name}
+                        </div>
+                        <div className="text-xs sm:text-sm text-gray-600">
+                          {selectedTestimonial.role}
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </DialogContent>
+            </Dialog>
+
+            {selectedTestimonial && (
+              <>
+                <DialogHeader>
+                  <DialogTitle className="text-2xl">Client Testimonial</DialogTitle>
+                </DialogHeader>
+                <div className="flex justify-center mb-4">
+                  {[...Array(selectedTestimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-6 w-6 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-6 italic text-sm md:text-base lg:text-lg">"{selectedTestimonial.content}"</p>
+                <div className="flex items-center space-x-3 mt-6">
+                  <img
+                    src={selectedTestimonial.image}
+                    alt={selectedTestimonial.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <div className="font-semibold text-gray-900">{selectedTestimonial.name}</div>
+                    <div className="text-sm text-gray-600">{selectedTestimonial.role}</div>
+                  </div>
+                </div>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
+
+        {/* CTA Section */}
+        <section className="home-cta py-12 sm:py-20 bg-gray-50 home-cta">
+          <div
+            className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+            data-aos="zoom-in"
+            data-aos-mirror="true"
+          >
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Ready to Transform Your Business?
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">
+              Let's discuss your project and explore how we can help you achieve your goals with innovative software solutions.
+            </p>
+            <div
+              className="flex flex-col sm:flex-row gap-3 justify-center"
+              data-aos="fade-up"
+            >
+              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-base" asChild>
+                <Link href="/contact-us">
+                  Get Free Consultation
+                  <ArrowRight className="ml-1 sm:ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-base" asChild>
+                <Link href="/portfolio">View Portfolio</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Hire Developer Modal */}
+        <HireDeveloperModal
+          developerTypes={developerTypes}
+          defaultDeveloper={selectedDeveloper}
+          open={isHireModalOpen}
+          onOpenChange={setIsHireModalOpen}
+        />
+      </div>
+    </div>
+  );
+}
