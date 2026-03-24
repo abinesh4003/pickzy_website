@@ -37,7 +37,12 @@ import {
   PenTool,
   Megaphone,
   Layers,
-  Cpu
+  Cpu,
+  Cloud,
+  CreditCard,
+  Heart,
+  ShoppingCart,
+  Building2
 } from 'lucide-react';
 
 
@@ -130,35 +135,23 @@ export default function Home() {
   const industries = [
     {
       name: "SaaS Startups",
-      icon: (
-        <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M4 4h16v4H4V4zm0 6h16v10H4V10zm2 2v6h12v-6H6z" />
-        </svg>
-      ),
+      icon: <Cloud className="w-5 h-5 text-blue-600" />
     },
     {
-      name: "FinTech Solutions",
-      icon: (
-        <svg className="w-5 h-5 text-blue-800" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M20 6h-8V4c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v2H2c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10-2h2v2h-2V4zM4 6h4v2H4V6z" />
-        </svg>
-      ),
+      name: "Fintech Platforms",
+      icon: <CreditCard className="w-5 h-5 text-blue-800" />
     },
     {
-      name: "HealthTech",
-      icon: (
-        <svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-        </svg>
-      ),
+      name: "Healthcare Apps",
+      icon: <Heart className="w-5 h-5 text-red-500" />
     },
     {
-      name: "E-Commerce",
-      icon: (
-        <svg className="w-5 h-5 text-blue-700" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
-        </svg>
-      ),
+      name: "E-commerce Platforms",
+      icon: <ShoppingCart className="w-5 h-5 text-blue-700" />
+    },
+    {
+      name: "Enterprise Software",
+      icon: <Building2 className="w-5 h-5 text-gray-600" />
     },
   ];
 
@@ -310,7 +303,7 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row gap-2 mb-4 sm:mb-8" >
                   <ScheduleCallButton
                     btnName='Book Free Consultation '
-                    className="text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white"
+                    className="text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white w-full sm:w-auto"
 
                   />
 
@@ -320,7 +313,7 @@ export default function Home() {
                     className="text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3 border-white/30 hover:bg-white/10 hover:text-white"
                     asChild
                   >
-                    <Link href="/portfolio">View Case Studies</Link>
+                    <Link href="/contact-us">Get In Touch</Link>
                   </Button>
                 </div>
 
@@ -360,6 +353,31 @@ export default function Home() {
             <ChevronDown className="h-5 w-5 text-white animate-bounce" />
           </div>
         </section>
+
+             {/* Stats Section */}
+        <section className="home-stats py-6 sm:py-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white home-stats">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center">
+              {[
+                { value: "300+", label: "Projects Completed" },
+                { value: "200+", label: "Happy Clients" },
+                { value: "13+", label: "Years Experience" },
+                { value: "24/7", label: "Support Available" }
+              ].map((stat, index) => (
+                <div
+                  key={index}
+                  data-aos="zoom-in"
+                  data-aos-mirror="true"
+                  className="text-center p-3 sm:p-4"
+                >
+                  <AnimatedCounter value={stat.value} duration={4} classname="text-2xl sm:text-4xl font-bold text-white" />
+                  <div className="text-blue-100 mt-1 sm:mt-2 text-xs sm:text-sm">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
 
         {/* Services Section */}
         <section className="py-12 sm:py-20 bg-gray-50 home-services">
@@ -413,72 +431,69 @@ export default function Home() {
 
         {/* hiring section */}
 
-        {/* Improved Hiring Section with Site Theme Colors */}
-        <section className="py-12 sm:py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-500/5 via-white to-purple-600/3 p-6 sm:p-10 lg:p-14 border border-blue-200/30 shadow-lg">
+  <section className="py-6 sm:py-8 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="relative overflow-hidden p-6 sm:p-10 lg:p-14" data-aos="fade-up">
 
-              {/* Decorative Elements */}
-              <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-400/15 to-transparent rounded-full blur-3xl -z-10"></div>
-              <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-gradient-to-tr from-blue-400/5 to-transparent rounded-full blur-3xl -z-10"></div>
+      {/* Decorative Elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-400/15 to-transparent rounded-full blur-3xl -z-10"></div>
+      <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-gradient-to-tr from-blue-400/5 to-transparent rounded-full blur-3xl -z-10"></div>
 
-              {/* Background Illustration (right side) */}
-              <div className="absolute right-0 top-0 h-full w-1/2 hidden md:block opacity-80">
-                <img
-                  src="/assets/images/cta-illustration1.jpg"
-                  alt="Developers Illustration"
-                  className="h-full w-full object-contain"
-                />
+      {/* Single image — mobile: relative block on top, desktop: absolute right side */}
+      <div className="relative w-full h-48 mb-6 md:absolute md:right-0 md:top-0 md:h-full md:w-1/2 md:mb-0 md:opacity-80">
+        <img
+          src="/assets/images/cta-illustration1.jpg"
+          alt="Developers Illustration"
+          className="w-full h-full object-contain"
+        />
+      </div>
+
+      <div className="relative z-10 max-w-2xl">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6" data-aos="fade-right">
+          Work with Developers Like Your In-House Team
+        </h2>
+
+        <p className="text-gray-600 text-sm sm:text-base mb-6 sm:mb-8" data-aos="fade-left">
+          Get dedicated engineers seamlessly integrated with your workflow
+        </p>
+
+        <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+          {[
+            "Dedicated engineers for your project",
+            "Flexible monthly engagement",
+            "Direct collaboration with your team"
+          ].map((item, i) => (
+            <li key={i} className="flex items-center text-gray-700 text-sm sm:text-base" data-aos="fade-up" data-aos-delay={i * 100}>
+              <div className="flex-shrink-0 h-5 w-5 sm:h-6 sm:w-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center mr-3">
+                <Check className="text-white h-3 w-3 sm:h-4 sm:w-4" strokeWidth={3} />
               </div>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
 
-              <div className="relative z-10 max-w-2xl">
-                {/* Heading */}
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-                  Work with Developers Like Your In-House Team
-                </h2>
+        <Button
+          className="text-sm sm:text-base px-4 py-2 sm:px-8 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+          onClick={() => openHireModal()}
+          data-aos="zoom-in"
+        >
+          <span className="inline-flex items-center gap-2">
+            Hire Dedicated Developers
+            <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+          </span>
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
 
-                {/* Subtitle */}
-                <p className="text-gray-600 text-sm sm:text-base mb-6 sm:mb-8">
-                  Get dedicated engineers seamlessly integrated with your workflow
-                </p>
-
-                {/* Points with Blue-Purple Checkmarks */}
-                <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                  {[
-                    "Dedicated engineers for your project",
-                    "Flexible monthly engagement",
-                    "Direct collaboration with your team"
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-center text-gray-700 text-sm sm:text-base">
-                      <div className="flex-shrink-0 h-5 w-5 sm:h-6 sm:w-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center mr-3">
-                        <Check className="text-white h-3 w-3 sm:h-4 sm:w-4" strokeWidth={3} />
-                      </div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Button with Site Theme */}
-                <Button
-                  className="text-sm sm:text-base px-4 py-2 sm:px-8 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                  onClick={() => openHireModal()}
-                >
-                  <span className="inline-flex items-center gap-2">
-                    Hire Dedicated Developers
-                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
-                  </span>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-white">
+      {/* serving industries */}
+        <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 ">
           <div className="max-w-7xl mx-auto px-4">
             {/* Section Header with Horizontal Lines */}
-            <div className="flex items-center justify-center mb-12">
+            <div className="flex items-center justify-center mb-12" data-aos="fade-up">
               <div className="hidden sm:block h-px bg-gradient-to-r from-transparent to-gray-300 flex-grow max-w-[100px]"></div>
-              <h2 className="mx-6 text-2xl md:text-3xl font-bold text-[#002B5B]">
+              <h2 className="mx-6 text-2xl  md:text-3xl font-bold text-white">
                 Industries We Serve
               </h2>
               <div className="hidden sm:block h-px bg-gradient-to-l from-transparent to-gray-300 flex-grow max-w-[100px]"></div>
@@ -490,6 +505,8 @@ export default function Home() {
                 <div
                   key={index}
                   className="flex items-center gap-3 px-6 py-4 bg-white rounded-lg border border-gray-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow duration-300 cursor-default min-w-[200px]"
+                  data-aos="zoom-in"
+                  data-aos-delay={index * 100}
                 >
                   <div className="flex-shrink-0">
                     {industry.icon}
@@ -503,29 +520,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="home-stats py-12 sm:py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white home-stats">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center">
-              {[
-                { value: "300+", label: "Projects Completed" },
-                { value: "200+", label: "Happy Clients" },
-                { value: "13+", label: "Years Experience" },
-                { value: "24/7", label: "Support Available" }
-              ].map((stat, index) => (
-                <div
-                  key={index}
-                  data-aos="zoom-in"
-                  data-aos-mirror="true"
-                  className="text-center p-3 sm:p-4"
-                >
-                  <AnimatedCounter value={stat.value} duration={4} classname="text-2xl sm:text-4xl font-bold text-white" />
-                  <div className="text-blue-100 mt-1 sm:mt-2 text-xs sm:text-sm">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+   
+            
+  
 
         {/* Testimonials Section */}
         <section className="home-testimonials py-12 sm:py-20 bg-white/60 home-testimonials">
@@ -665,6 +662,9 @@ export default function Home() {
             )}
           </DialogContent>
         </Dialog>
+
+
+
 
         {/* CTA Section */}
         <section className="home-cta py-12 sm:py-20 bg-gray-50 home-cta">

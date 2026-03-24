@@ -8,54 +8,66 @@ const nextConfig = {
 
 
 
- async rewrites() {
+  async rewrites() {
     return [
       {
         source: "/mobile-apps-development",          // URL user visits
         destination: "/services/mobile-apps-development", // actual folder route
       },
       {
-        source: "/web-development",         
+        source: "/web-development",
         destination: "/services/web-development",
       },
       {
-        source: "/design-and-markup",         
+        source: "/design-and-markup",
         destination: "/services/design-and-markup",
       },
       {
-        source: "/internet-marketing",         
+        source: "/internet-marketing",
         destination: "/services/internet-marketing",
       },
       {
-        source: "/digital-transformation",         
+        source: "/digital-transformation",
         destination: "/services/digital-transformation",
       },
       {
-        source: "/custom-software-development",         
+        source: "/custom-software-development",
         destination: "/services/custom-software-development",
       },
       {
-        source: "/desktop-application-development",         
+        source: "/desktop-application-development",
         destination: "/services/desktop-application-development",
       },
       {
-        source: "/cloud",         
+        source: "/cloud",
         destination: "/services/cloud",
+      },
+      {
+        source: "/dedicated-development-teams",
+        destination: "/services/dedicated-development-teams"
+      },
+      {
+        source: "/saas-product-development",
+        destination: "/services/saas-product-development"
+      },
+      {
+        source: "/ai-automation-solutions",
+        destination: "/services/ai-automation-solutions"
       }
 
     ];
   },
 
 
-   async redirects() {
+  async redirects() {
     return [
-      
+
       {
-      source: '/:path(ios-apps-development|android-apps-development|windows-apps-development)',
-      destination: '/mobile-apps-development',
-      permanent: true,
-    },
-    
+        source: '/:path(ios-apps-development|android-apps-development|windows-apps-development)',
+        destination: '/mobile-apps-development',
+        permanent: true,
+      },
+
       {
         source: '/:path(php-web-development|ror-web-development|wordpress-web-development|magento-web-development|drupal-web-development|joomla-web-development)',
         destination: '/web-development',
@@ -66,7 +78,7 @@ const nextConfig = {
         destination: '/design-and-markup',
         permanent: true,
       },
-          {
+      {
         source: '/:path(seo-services|search-engine-marketing|social-media-marketing)',
         destination: '/internet-marketing',
         permanent: true,
@@ -76,8 +88,8 @@ const nextConfig = {
         destination: '/services',
         permanent: true,
       },
-       {
-        source: "/service/mobile",  
+      {
+        source: "/service/mobile",
         destination: "/mobile",
         permanent: true,
       },

@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Menu, X, ChevronDown, Briefcase } from 'lucide-react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { HireDeveloperModal } from '@/components/HireDeveloperModal';
 import { showToast } from './ui/toast';
@@ -23,6 +23,7 @@ export default function Header() {
   const [isHireModalOpen, setIsHireModalOpen] = useState(false);
   const [selectedDeveloper, setSelectedDeveloper] = useState('');
   const pathname = usePathname();
+  const router = useRouter();
   const servicesButtonRef = useRef<HTMLButtonElement>(null);
   const hireButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -30,12 +31,15 @@ export default function Header() {
 
   // Services data
   const services: NavItem[] = [
+    { name: "Dedicated Development Teams", href: "/dedicated-development-teams" },
+    { name: "SaaS Product Development", href: "/saas-product-development" },
+    { name: "AI & Automation Solutions", href: "/ai-automation-solutions" },
     { name: "Web Development", href: "/web-development" },
     { name: "Mobile Apps", href: "/mobile-apps-development" },
     { name: "Desktop Apps", href: "/desktop-application-development" },
     { name: "Design & MarkUp", href: "/design-and-markup" },
+    { name: "Cloud Solutions", href: "/cloud" },
     { name: "Internet Marketing", href: "/internet-marketing" },
-    { name: "Digital Transformation", href: "/digital-transformation" },
     { name: "Custom Software", href: "/custom-software-development" },
   ];
 
@@ -227,7 +231,7 @@ export default function Header() {
                     ? 'text-blue-600' 
                     : 'text-gray-900 hover:text-blue-600'
                 }`}
-                onClick={() => toggleServices(!isServicesOpen)}
+                onClick={() => router.push('/services')}
                 onKeyDown={(e) => handleDropdownKeyDown(e, 'services')}
                 onMouseEnter={() => {
                   cancelCloseTimer();
@@ -427,7 +431,7 @@ export default function Header() {
                 aria-controls="mobile-services-menu"
               >
                 Services
-                <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${
+                <ChevronDown className={`h-5  w-5 transition-transform duration-200 ${
                   isServicesOpen ? 'rotate-180' : ''
                 }`} />
               </button>

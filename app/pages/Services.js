@@ -18,7 +18,10 @@ import {
   Cloud,
   BarChart,
   Monitor,
-  Cog
+  Cog,
+  Users,
+  Layers,
+  Cpu
 } from 'lucide-react';
 
 export default function Services() {
@@ -26,7 +29,31 @@ export default function Services() {
 
 const services = [
   {
-    icon: <Globe className="w-12 h-12 text-blue-600" />,
+    icon: <Users className="w-12 h-12 text-indigo-600" />,
+    title: "Dedicated Development Teams",
+    description: "Hire skilled developers who work as your extended team, seamlessly integrated with your workflow and processes.",
+    features: ["Monthly engagement", "Direct collaboration", "Skilled engineers", "Flexible scaling"],
+    technologies: ["React", "Node.js", "Python", "AWS"],
+    link: "/dedicated-development-teams"
+  },
+  {
+    icon: <Layers className="w-12 h-12 text-blue-600" />,
+    title: "SaaS Product Development",
+    description: "We build scalable SaaS platforms from MVP to enterprise scale with modern architecture and best practices.",
+    features: ["MVP development", "Multi-tenant architecture", "Subscription billing", "Analytics dashboard"],
+    technologies: ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
+    link: "/saas-product-development"
+  },
+  {
+    icon: <Cpu className="w-12 h-12 text-cyan-600" />,
+    title: "AI & Automation Solutions",
+    description: "Integrate AI and automation into your business processes to improve efficiency and drive innovation.",
+    features: ["Machine learning models", "Process automation", "Chatbots & AI assistants", "Data analytics"],
+    technologies: ["Python", "TensorFlow", "OpenAI", "RPA"],
+    link: "/ai-automation-solutions"
+  },
+  {
+    icon: <Globe className="w-12 h-12 text-green-600" />,
     title: "Web Development",
     description: "Modern, responsive websites and web applications optimized for performance and user engagement.",
     features: ["Responsive design", "E-commerce solutions", "CMS development", "Performance optimization"],
@@ -42,7 +69,7 @@ const services = [
     link: "/mobile-apps-development"
   },
   {
-    icon: <Monitor className="w-12 h-12 text-green-600" />,
+    icon: <Monitor className="w-12 h-12 text-gray-600" />,
     title: "Desktop Apps",
     description: "Robust desktop applications for Windows, macOS, and Linux with native performance and integration.",
     features: ["Cross-platform development", "Native performance", "System integration", "Offline capabilities"],
@@ -74,7 +101,7 @@ const services = [
     link: "/digital-transformation"
   },
   {
-    icon: <Code className="w-12 h-12 text-indigo-600" />,
+    icon: <Code className="w-12 h-12 text-slate-600" />,
     title: "Custom Software",
     description: "Tailored software solutions built to meet your specific business requirements and scale with your growth.",
     features: ["Full-stack development", "API integration", "Legacy system modernization", "Microservices architecture"],
