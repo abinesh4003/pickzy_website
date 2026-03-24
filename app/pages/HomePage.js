@@ -302,8 +302,9 @@ export default function Home() {
                 {/* Buttons */}
                 <div className="flex flex-col sm:flex-row gap-2 mb-4 sm:mb-8" >
                   <ScheduleCallButton
+                   location='home'
                     btnName='Book Free Consultation '
-                    className="text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white w-full sm:w-auto"
+                    className="text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3 text-white w-full sm:w-auto  "
 
                   />
 
@@ -410,7 +411,7 @@ export default function Home() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-center">
-                    <Button variant="outline" className="group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 text-sm sm:text-base" asChild>
+                    <Button variant="outline" className="group-hover:bg-orange-500 group-hover:text-white transition-all duration-300 text-sm sm:text-base" asChild>
                       <Link href={service.link} className='learnmore'>Learn More</Link>
                     </Button>
                   </CardContent>
@@ -422,7 +423,7 @@ export default function Home() {
               className="text-center mt-8 sm:mt-12"
               data-aos="fade-up"
             >
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-sm sm:text-base" asChild>
+              <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white text-sm md:text-base font-semibold rounded-md" asChild>
                 <Link href="/services">View All Services</Link>
               </Button>
             </div>
@@ -473,7 +474,7 @@ export default function Home() {
         </ul>
 
         <Button
-          className="text-sm sm:text-base px-4 py-2 sm:px-8 sm:py-3 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+          className="bg-orange-500 hover:bg-orange-600 text-white text-sm md:text-base font-semibold rounded-md px-4 py-2 sm:px-8 sm:py-3 shadow-lg hover:shadow-xl transition-all duration-300"
           onClick={() => openHireModal()}
           data-aos="zoom-in"
         >
@@ -683,7 +684,7 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-3 justify-center"
               data-aos="fade-up"
             >
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-6 py-2 sm:px-8 sm:py-3 text-sm sm:text-base" asChild>
+              <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white text-sm md:text-base font-semibold rounded-md px-6 py-2 sm:px-8 sm:py-3" asChild>
                 <Link href="/contact-us">
                   Get Free Consultation
                   <ArrowRight className="ml-1 sm:ml-2 h-4 w-4 sm:h-5 sm:w-5" />

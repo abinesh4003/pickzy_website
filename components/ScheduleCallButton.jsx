@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { showToast } from './ui/toast';
 
-const ScheduleCallButton = ({btnName="Schedule a Call", className=""}) => {
+const ScheduleCallButton = ({btnName="Schedule a Call", className="" ,location="" ,size="default"}) => {
     // State management
     const [isOpen, setIsOpen] = useState(false);
     const [step, setStep] = useState(1); // 1: date, 2: time, 3: details, 4: confirmation
@@ -197,9 +197,16 @@ const ScheduleCallButton = ({btnName="Schedule a Call", className=""}) => {
         <div className="text-center">
            
             <Button
-                className={`schedule-call bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 
-                hover:to-indigo-700 shadow hover:shadow-md transition-all 
-                duration-200 px-4 pb-2 rounded-lg text-sm font-medium ${className}`}
+                size={size}
+                
+                className={`schedule-call
+                     shadow hover:shadow-md transition-all 
+                duration-200 px-4 pb-2 rounded-lg text-sm font-medium
+                    
+                    ${location=="home" ? "bg-orange-500 hover:bg-orange-600  text-white text-sm md:text-base font-semibold rounded-md" :
+                    location=="cta" ? " bg-white   border-white text-blue-600 hover:bg-white hover:text-blue-600 text-sm md:text-base" :
+                    "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"} 
+                ${className}`}
                 onClick={() => setIsOpen(true)}
             >
                 {btnName}
@@ -447,7 +454,7 @@ const ScheduleCallButton = ({btnName="Schedule a Call", className=""}) => {
                                             <div>
                                                 <label className="block text-xs font-medium text-gray-700 mb-1">Additional Notes (Optional)</label>
                                                 <textarea
-                                                    className="w-full rounded-md border-gray-300 border-2 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm py-2"
+                                                    className="w-full rounded-md border-gray-300 border-2 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm py-2 px-3"
                                                     rows={2}
                                                     value={userDetails.notes}
                                                     onChange={(e) => setUserDetails({ ...userDetails, notes: e.target.value })}

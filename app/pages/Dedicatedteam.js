@@ -4,6 +4,7 @@ import { Users, ArrowRight, CheckCircle, Briefcase, Code, PenTool, Shield, Headp
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import ScheduleCallButton from '@/components/ScheduleCallButton';
 
 export default function DedicatedTeam() {
   const expertise = [
@@ -466,11 +467,13 @@ export default function DedicatedTeam() {
             Let's discuss your requirements and find the perfect team to accelerate your development.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
-            <Link href="/contact-us">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 text-sm md:text-base px-6 py-2 md:px-8 md:py-3">
-                Schedule a Call
-              </Button>
-            </Link>
+            
+            <ScheduleCallButton 
+              className=" px-6 py-2 md:px-8 md:py-5"
+              btnName='Schedule a Call'
+              location='cta'
+              size='lg'
+            />
             <Link href="/contact-us">
               <Button size="lg" variant="outline" className="border-white text-blue-600 hover:bg-white hover:text-blue-600 text-sm md:text-base px-6 py-2 md:px-8 md:py-3">
                 Request Team Proposal
