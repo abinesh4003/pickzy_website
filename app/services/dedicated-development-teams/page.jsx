@@ -1,5 +1,5 @@
 import React from 'react';
-import DedicatedTeam from '@/app/pages/DedicatedTeam';
+import DedicatedTeam from '@/app/pages/Dedicatedteam';
 const page = () => {
     return (
         <div>
