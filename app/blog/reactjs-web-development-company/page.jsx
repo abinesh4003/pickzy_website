@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Script from 'next/script';
 import { ArrowLeft, ArrowRight, Check, Circle } from 'lucide-react';
+import ScheduleCallButton from '@/components/ScheduleCallButton';
 
 
 const ReactJsBlogPost = () => {
@@ -281,18 +282,18 @@ return (
               >
                 <h3 className="text-lg md:text-xl font-bold mb-2">Ready to Build With React?</h3>
                 <p className="mb-4 md:mb-6 opacity-90 text-sm md:text-base">If you're looking for a <strong>trusted React.js development company</strong> to build, scale, or modernize your web application — we're here to help.</p>
-                <Link 
-                  href="/contact-us" 
-                  className="inline-flex items-center justify-center bg-white text-indigo-600 hover:bg-gray-100 px-4 py-2 md:px-6 md:py-3 rounded-lg font-medium transition shadow hover:shadow-md text-sm md:text-base"
-                >
-                  schedule a free consultation
-                </Link>
+                <ScheduleCallButton 
+                 btnName='Schedule a Free Consultation'
+                 size='lg'
+                 location='cta'
+                />
+                
               </div>
 
               {/* Author Box */}
               <div 
-                className="flex flex-col sm:flex-row gap-4 md:gap-6 p-4 md:p-6 bg-gray-50 dark:bg-gray-800 rounded-xl my-6 md:my-8" 
-                data-aos="fade-up"
+                className="flex  flex-col sm:flex-row gap-4 md:gap-6 p-4 md:p-6 bg-gray-50 dark:bg-gray-800 rounded-xl my-6 md:my-8" 
+                // data-aos="fade-up"
               >
                 <div className="flex-shrink-0 mx-auto sm:mx-0">
                   <Image
@@ -303,7 +304,7 @@ return (
                     className="rounded-full w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-cover"
                   />
                 </div>
-                <div className="text-center sm:text-left mt-4 sm:mt-0">
+                <div className="text-center sm:text-left mt-4 sm:mt-0 ">
                   <h4 className="font-bold text-base md:text-lg text-gray-900 dark:text-white">PickZy Team</h4>
                   <p className="text-gray-600 dark:text-gray-400 mb-2 text-sm md:text-base">Senior React.js Developers</p>
                   <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">Our team has delivered over 50 React.js projects for clients across various industries, helping them build performant and scalable web applications.</p>

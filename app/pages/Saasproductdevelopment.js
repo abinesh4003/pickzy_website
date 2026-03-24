@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import ScheduleCallButton from '@/components/ScheduleCallButton';
 import Link from 'next/link';
 
 export default function SaasProductDevelopment() {
@@ -477,11 +478,12 @@ export default function SaasProductDevelopment() {
                 Get a Free Quote
               </Button>
             </Link>
-            <Link href="/contact-us">
-              <Button size="lg" variant="outline" className="border-white hover:bg-white hover:text-blue-600 text-sm md:text-base px-6 py-2 md:px-8 md:py-3">
-                Schedule a Call
-              </Button>
-            </Link>
+            <ScheduleCallButton 
+              className="px-6 py-2 md:px-8 md:py-5"
+              btnName='Schedule a Call'
+              location='cta'
+              size='lg'
+            />
           </div>
         </div>
       </section>

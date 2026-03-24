@@ -201,7 +201,7 @@ const ScheduleCallButton = ({btnName="Schedule a Call", className="" ,location="
                 
                 className={`schedule-call
                      shadow hover:shadow-md transition-all 
-                duration-200 px-4 pb-2 rounded-lg text-sm font-medium
+                duration-200 px-4 rounded-lg text-sm font-medium
                     
                     ${location=="home" ? "bg-orange-500 hover:bg-orange-600  text-white text-sm md:text-base font-semibold rounded-md" :
                     location=="cta" ? " bg-white   border-white text-blue-600 hover:bg-white hover:text-blue-600 text-sm md:text-base" :
@@ -216,7 +216,7 @@ const ScheduleCallButton = ({btnName="Schedule a Call", className="" ,location="
             {/* Modal */}
             <AnimatePresence>
                 {isOpen && (
-                    <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4">
+                    <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[9999] flex items-center justify-center p-2 sm:p-4">
                         <motion.div
                             ref={modalRef}
                             initial={{ opacity: 0, y: 20 }}

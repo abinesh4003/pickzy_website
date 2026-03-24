@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { useState } from 'react';
+import ScheduleCallButton from '@/components/ScheduleCallButton';
 
 export default function AIAutomationDevelopment() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -560,11 +561,10 @@ export default function AIAutomationDevelopment() {
             Let's discuss how customized AI and workflow automation can transform your operations. Contact us for a precise capability audit.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
-            <Link href="/contact-us">
-              <Button size="lg" className="bg-white text-blue-900 hover:bg-gray-100 font-semibold text-sm md:text-base px-6 py-2 md:px-8 md:py-3">
-                Get a Free Consultation
-              </Button>
-            </Link>
+
+            <ScheduleCallButton location='cta' btnName='Get a Free Consultation' size="lg" className="bg-white text-blue-900 hover:bg-gray-100 font-semibold text-sm md:text-base px-6 py-2 md:px-8 md:py-3" />
+            
+    
             <Link href="/contact-us">
               <Button size="lg" variant="outline" className="border-white hover:bg-white hover:text-blue-600 text-sm md:text-base px-6 py-2 md:px-8 md:py-3">
                 Request a Custom Demo

@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
+import ScheduleCallButton from '@/components/ScheduleCallButton';
 export default function DigitalTransformation() {
   const services = [
     {
@@ -246,11 +247,14 @@ const whyUs = [
             Let's discuss how we can modernize your operations and deliver impactful results with digital transformation.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link rel="stylesheet" href="/contact-us" >
-            <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-100 px-8 py-6 text-lg font-semibold">
-              Schedule a Free Call
-            </Button>
-            </Link>
+            
+         <ScheduleCallButton 
+                 btnName='Schedule a Free Call'
+                 size="lg"
+                 location='cta'
+                 className=" bg-white border-white hover:bg-white hover:text-blue-900 px-8 py-6 text-lg font-semibold text-blue-900"
+                />
+         
                  <Link rel="stylesheet" href="/contact-us" >
             <Button size="lg" variant="outline" className="text-blue-900 border-white hover:bg-white hover:text-blue-900 px-8 py-6 text-lg font-semibold">
          Start Your Project
