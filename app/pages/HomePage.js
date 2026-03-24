@@ -88,25 +88,25 @@ export default function Home() {
       description: "Modern, responsive websites and web applications optimized for performance.",
       link: "/web-development"
     },
-    {
-      icon: <PenTool className="w-8 h-8 text-pink-600" />,
-      title: "UI/UX Design",
-      description: "User-centered interfaces and experiences that drive engagement and conversions.",
-      link: "/design-and-markup"
-    },
-    {
-      icon: <Database className="w-8 h-8 text-orange-600" />,
-      title: "Cloud Solutions",
-      description: "Scalable cloud infrastructure and migration services for modern businesses.",
-      link: "/cloud"
-    },
+    // {
+    //   icon: <PenTool className="w-8 h-8 text-pink-600" />,
+    //   title: "UI/UX Design",
+    //   description: "User-centered interfaces and experiences that drive engagement and conversions.",
+    //   link: "/design-and-markup"
+    // },
+    // {
+    //   icon: <Database className="w-8 h-8 text-orange-600" />,
+    //   title: "Cloud Solutions",
+    //   description: "Scalable cloud infrastructure and migration services for modern businesses.",
+    //   link: "/cloud"
+    // },
 
-    {
-      icon: <Megaphone className="w-8 h-8 text-blue-400" />,
-      title: "Internet Marketing",
-      description: "SEO, PPC, and social media strategies to grow your online presence.",
-      link: "/internet-marketing"
-    },
+    // {
+    //   icon: <Megaphone className="w-8 h-8 text-blue-400" />,
+    //   title: "Internet Marketing",
+    //   description: "SEO, PPC, and social media strategies to grow your online presence.",
+    //   link: "/internet-marketing"
+    // },
   ];
 
   const features = [
