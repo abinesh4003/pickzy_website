@@ -1,8 +1,9 @@
 'use client';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import Link from 'next/link';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
+import Model from '../our-products/ProductModal'
 import {
   MapPin, Store, Package, Bike, Handshake,
   Bot, BarChart2, Clapperboard, Tag, RefreshCw,
@@ -24,7 +25,18 @@ const studioSlides = [
 ];
 
 function ProductSlider({ slides }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 4000, stopOnInteraction: true })]);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, axis: 'x', dragFree: false, watchDrag: (_api, evt) => {
+      if (!(evt instanceof TouchEvent)) return true;
+      const t = evt.touches[0];
+      const dx = Math.abs(t.clientX - (emblaRef._startX || t.clientX));
+      const dy = Math.abs(t.clientY - (emblaRef._startY || t.clientY));
+      if (!emblaRef._startX) { emblaRef._startX = t.clientX; emblaRef._startY = t.clientY; }
+      if (dy > dx) { emblaRef._startX = null; emblaRef._startY = null; return false; }
+      return true;
+    }},
+    [Autoplay({ delay: 4000, stopOnInteraction: true })]
+  );
 
   const prev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
   const next = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
@@ -70,6 +82,7 @@ function ProductSlider({ slides }) {
 }
 
 export default function ProductsPage() {
+   const [modal, setModal] = useState(null); 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 antialiased">
 
@@ -191,6 +204,12 @@ export default function ProductsPage() {
               <Link href="https://play.google.com/store/apps/details?id=com.bayfay.customer" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-slate-200 hover:border-slate-300 bg-white text-slate-600 text-sm font-medium px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl hover:bg-slate-50 transition-all duration-200">
                 Google Play <ExternalLink size={13} />
               </Link>
+              <button
+  onClick={() => setModal('bayfay')}
+  className="inline-flex items-center gap-2 border border-orange-200 text-orange-600 bg-orange-50 px-5 py-3 rounded-xl text-sm font-semibold hover:bg-orange-100 transition-colors"
+>
+  Learn more
+</button>
             </div>
           </div>
         </div>
@@ -246,7 +265,12 @@ export default function ProductsPage() {
               <Link href="https://support.pickzy.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 via-purple-500 to-purple-600 hover:scale-105 text-white font-semibold px-5 sm:px-7 py-3 sm:py-3.5 rounded-2xl shadow-[0_10px_40px_rgba(168,85,247,0.35)] transition-all duration-300 text-sm">
                 Try Now <ArrowRight size={15} />
               </Link>
-             
+             {/* <button
+  onClick={() => setModal('studio')}
+  className="inline-flex items-center gap-2 border border-purple-200 text-purple-600 bg-purple-50 px-5 py-3 rounded-xl text-sm font-semibold hover:bg-purple-100 transition-colors"
+>
+  Learn more
+</button> */}
             </div>
           </div>
 
@@ -276,14 +300,7 @@ export default function ProductsPage() {
             <div className="absolute -top-20 -left-20 w-96 h-96 bg-orange-300/30 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-violet-300/30 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-pink-200/20 rounded-full blur-3xl pointer-events-none" />
-            <svg className="absolute inset-0 w-full h-full opacity-[0.05]" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="dots2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <circle cx="1.5" cy="1.5" r="1.5" fill="#7c3aed" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#dots2)" />
-            </svg>
+
 
             <div className="relative space-y-5 sm:space-y-6">
               <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-orange-500 bg-white border border-orange-200 shadow-sm px-4 py-1.5 rounded-full">
@@ -311,6 +328,9 @@ export default function ProductsPage() {
         </div>
       </section>
 
+       {/* ── MODALS ── */}
+      <Model isOpen={modal === 'bayfay'} onClose={() => setModal(null)} type="bayfay" />
+      <Model isOpen={modal === 'studio'} onClose={() => setModal(null)} type="studio" />
     </div>
   );
 }
