@@ -244,7 +244,7 @@ export default function SaasProductDevelopment() {
       {/* Expertise Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Our <span className="text-blue-600">SaaS Expertise</span>
             </h2>
@@ -259,6 +259,8 @@ export default function SaasProductDevelopment() {
               <Card
                 key={index}
                 className="hover:shadow-lg transition-all duration-300 border border-gray-100 group"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
               >
                 <CardHeader className="p-4 md:p-6">
                   <div className="flex items-center mb-3 md:mb-4">
@@ -280,7 +282,7 @@ export default function SaasProductDevelopment() {
       {/* Capabilities Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Our <span className="text-blue-600">SaaS Development</span> Capabilities
             </h2>
@@ -295,6 +297,8 @@ export default function SaasProductDevelopment() {
               <Card
                 key={index}
                 className="hover:shadow-lg transition-all duration-300 border border-gray-100"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
               >
                 <CardHeader className="p-4 md:p-6">
                   <div className="flex items-center mb-3 md:mb-4">
@@ -323,7 +327,7 @@ export default function SaasProductDevelopment() {
       {/* Technologies Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Technologies <span className="text-blue-600">We Use</span>
             </h2>
@@ -335,7 +339,7 @@ export default function SaasProductDevelopment() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
             {technologies.map((tech, index) => (
-              <div key={index} className="flex flex-col items-center">
+              <div key={index} className="flex flex-col items-center" data-aos="fade-up" data-aos-delay={index * 50}>
                 <div className="w-12 h-12 md:w-16 md:h-16 bg-gray-50 rounded-lg shadow-sm flex items-center justify-center p-2 md:p-3 mb-2 md:mb-3">
                   <img src={tech.icon} alt={tech.name} className="w-full h-auto max-h-8 md:max-h-10 object-contain" />
                 </div>
@@ -349,7 +353,7 @@ export default function SaasProductDevelopment() {
       {/* Industries We Serve Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Industries <span className="text-blue-600">We Serve</span>
             </h2>
@@ -368,7 +372,7 @@ export default function SaasProductDevelopment() {
               { icon: <BarChart3 className="h-5 w-5 md:h-6 md:w-6 text-red-600" />, title: "Real Estate", items: ["Property listings", "Tenant management", "Real estate CRM"] },
               { icon: <Zap className="h-5 w-5 md:h-6 md:w-6 text-indigo-600" />, title: "EdTech", items: ["Learning management", "Online course platforms", "Student analytics"] }
             ].map((industry, idx) => (
-              <div key={idx} className="bg-white p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100">
+              <div key={idx} className="bg-white p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100" data-aos="fade-up" data-aos-delay={idx * 100}>
                 <div className="flex items-center mb-3 md:mb-4">
                   <div className="p-2 md:p-3 rounded-lg bg-blue-50 mr-3 md:mr-4">
                     {industry.icon}
@@ -392,7 +396,7 @@ export default function SaasProductDevelopment() {
       {/* Process Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Our <span className="text-blue-600">SaaS Development</span> Process
             </h2>
@@ -410,6 +414,7 @@ export default function SaasProductDevelopment() {
                 <div
                   key={index}
                   className={`relative lg:flex ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center justify-between`}
+                  data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
                 >
                   <div className={`lg:w-5/12 mb-6 md:mb-8 lg:mb-0 ${index % 2 === 0 ? 'lg:pr-8 lg:pl-0' : 'lg:pl-8 lg:pr-0'}`}>
                     <div className="bg-gray-50 p-5 md:p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
@@ -441,7 +446,7 @@ export default function SaasProductDevelopment() {
       {/* Why Choose Us Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Why Choose Our <span className="text-blue-600">SaaS Development</span> Services?
             </h2>
@@ -453,6 +458,8 @@ export default function SaasProductDevelopment() {
               <div
                 key={index}
                 className={`${item.bg} p-5 md:p-6 rounded-lg hover:shadow-lg transition-shadow duration-300`}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
               >
                 <h3 className={`text-base md:text-lg lg:text-xl font-semibold mb-2 md:mb-3 ${item.text}`}>{item.title}</h3>
                 <p className="text-sm md:text-base text-gray-700">{item.content}</p>
@@ -463,9 +470,9 @@ export default function SaasProductDevelopment() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-r from-blue-600 to-purple-600" >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4" data-aos="fade-up">
             Ready to Build Your <span className="text-blue-200">SaaS Product</span>?
           </h2>
           <div className="w-16 md:w-20 h-1 bg-blue-200 mx-auto mb-4 md:mb-6"></div>

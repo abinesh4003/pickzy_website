@@ -1,0 +1,318 @@
+'use client';
+import React, { useCallback } from 'react';
+import Link from 'next/link';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
+import {
+  MapPin, Store, Package, Bike, Handshake,
+  Bot, BarChart2, Clapperboard, Tag, RefreshCw,
+  ChevronLeft, ChevronRight, ArrowRight, ExternalLink,
+  Zap, Users, Clock, Star
+} from 'lucide-react';
+
+const bayfaySlides = [
+  { src: '/assets/products/bayfay_model.jpg', alt: 'BayFay App Home' },
+  { src: '/assets/products/bayfay_model2.jpg', alt: 'BayFay Merchant Dashboard' },
+  { src: '/assets/products/bayfay_model3.jpg', alt: 'BayFay Mobile View' },
+];
+
+const studioSlides = [
+  { src: '/assets/products/shortsStudio1.jpg', alt: 'Shorts Studio Dashboard' },
+  { src: '/assets/products/shortsStudio2.jpg', alt: 'AI Pipeline' },
+  { src: '/assets/products/shortsStudio3.jpg', alt: 'Analytics View' },
+  { src: '/assets/products/shortsStudio4.jpg', alt: 'Shorts Generation View' },
+];
+
+function ProductSlider({ slides }) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 4000, stopOnInteraction: true })]);
+
+  const prev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const next = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+
+  return (
+    <div className="relative group transition-all duration-500 hover:-translate-y-2">
+      {/* Glow */}
+      <div className="absolute -inset-4 bg-gradient-to-r from-orange-200 via-blue-100 to-purple-200 rounded-3xl blur-2xl opacity-20 group-hover:opacity-35 transition-opacity duration-500 pointer-events-none" />
+
+      <div className="relative rounded-[32px] overflow-hidden bg-white/80 backdrop-blur-xl border border-white/60 shadow-[0_25px_80px_rgba(15,23,42,0.12)]">
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {slides.map((slide, i) => (
+              <div className="flex-[0_0_100%] min-w-0" key={i}>
+                <div className="w-full h-64 sm:h-80 md:h-[520px] bg-slate-50 flex items-center justify-center">
+                  <img
+                    src={slide.src}
+                    alt={slide.alt}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Arrows – always visible on mobile, hover on desktop */}
+        <button
+          onClick={prev}
+          className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm border border-slate-100 shadow-md flex items-center justify-center text-slate-600 hover:text-slate-900 hover:scale-110 transition-all duration-200 opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
+        >
+          <ChevronLeft size={16} />
+        </button>
+        <button
+          onClick={next}
+          className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm border border-slate-100 shadow-md flex items-center justify-center text-slate-600 hover:text-slate-900 hover:scale-110 transition-all duration-200 opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
+        >
+          <ChevronRight size={16} />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <div className="min-h-screen bg-white font-sans text-slate-900 antialiased">
+
+      {/* ── HERO ── */}
+      <section className="relative overflow-hidden min-h-[480px] md:min-h-[720px] flex items-center justify-center px-4 sm:px-6">
+
+        {/* Background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/assets/products/product_hero.png')" }}
+        />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-5xl mx-auto text-center">
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-black tracking-[-0.06em] leading-[0.9] text-slate-950" data-aos="fade-down">
+            Software built to
+          </h1>
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-black tracking-[-0.06em] leading-[0.9] text-slate-950" data-aos="fade-down" data-aos-delay="100">
+            move
+          </h1>
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-black tracking-[-0.06em] leading-[0.9]" data-aos="fade-down" data-aos-delay="200">
+            <span className="bg-gradient-to-r from-orange-500 via-orange-400 to-blue-600 bg-clip-text text-transparent">
+              communities
+            </span>
+            {" "}
+            <span className="text-slate-950">
+              forward.
+            </span>
+          </h1>
+
+          <p className="mt-4 sm:mt-8 text-lg sm:text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="300">
+            Two products. One mission — build tools that empower local economies and digital creators at scale.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6 sm:mt-10" data-aos="zoom-in" data-aos-delay="400">
+
+            <Link
+              href="https://bayfay.com"
+              target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold shadow-[0_10px_40px_rgba(249,115,22,0.35)] text-sm sm:text-base"
+            >
+              Explore BayFay
+              <ArrowRight size={16} />
+            </Link>
+
+            <Link
+              href="https://support.pickzy.com/"
+              target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white/90 border border-slate-200 text-slate-700 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl shadow-lg text-sm sm:text-base"
+            >
+              Explore Shorts Studio
+              <ExternalLink size={15} />
+            </Link>
+
+          </div>
+
+        </div>
+      </section>
+      {/* ── PRODUCT 1: BAYFAY ── */}
+      <section id="bayfay" className="relative overflow-hidden px-4 sm:px-6 py-16 sm:py-20 md:py-28">
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50/60 via-white to-blue-50/40 pointer-events-none" />
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-100/50 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center transition-all duration-500 hover:scale-[1.01]">
+
+          {/* Slider */}
+          <div className="relative" data-aos="fade-right">
+            <ProductSlider slides={bayfaySlides} />
+            {/* Floating card – responsive positioning */}
+            <div className="absolute -bottom-4 -right-2 sm:-bottom-5 sm:-right-4 bg-white/90 backdrop-blur-xl rounded-2xl shadow-[0_20px_60px_rgba(15,23,42,0.12)] border border-white px-4 py-2.5 sm:px-5 sm:py-3.5 flex items-center gap-2 sm:gap-3 z-10">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-orange-50 flex items-center justify-center">
+                <Bike size={18} className="text-orange-500" />
+              </div>
+              <div>
+                <div className="text-xs sm:text-sm font-bold text-slate-800">Fast Delivery</div>
+                <div className="text-[10px] sm:text-xs text-slate-400">Within 5 km radius</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="flex flex-col gap-6 sm:gap-8" data-aos="fade-left">
+            <div className="space-y-3 sm:space-y-4">
+              <span className="text-xs font-bold tracking-widest uppercase text-orange-500 bg-orange-50 border border-orange-100 px-3 py-1.5 rounded-full">
+                Hyperlocal Commerce
+              </span>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-[-0.05em] text-slate-900">
+                Bay<span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-400">Fay</span>
+              </h2>
+              <p className="text-base sm:text-lg leading-relaxed">
+                A 24×7 hyperlocal delivery ecosystem that digitises neighbourhood stores, connects wholesale suppliers, and lets anyone earn as a delivery partner — all within a 5 km radius.
+              </p>
+            </div>
+
+            <ul className="space-y-3 sm:space-y-4">
+              {[
+                { icon: <MapPin size={16} />, text: 'Shop from stores within 5 km of your location', bg: 'bg-orange-50', color: 'text-orange-600' },
+                { icon: <Store size={16} />, text: 'Merchant dashboard to digitise inventory & deliveries', bg: 'bg-blue-50', color: 'text-blue-600' },
+                { icon: <Package size={16} />, text: 'B2B wholesale channel for retail restocking', bg: 'bg-emerald-50', color: 'text-emerald-600' },
+                { icon: <Bike size={16} />, text: 'Open logistics — anyone can earn as a delivery partner', bg: 'bg-purple-50', color: 'text-purple-600' },
+                { icon: <Handshake size={16} />, text: 'Delivery agency partnerships for regional fleet ops', bg: 'bg-pink-50', color: 'text-pink-600' },
+              ].map((f) => (
+                <li key={f.text} className="flex items-center gap-3 sm:gap-4">
+                  <span className={`w-9 h-9 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${f.bg} ${f.color}`}>
+                    {f.icon}
+                  </span>
+                  <span className="text-sm sm:text-base text-slate-600 leading-snug">{f.text}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex flex-wrap gap-3">
+              <Link href="https://bayfay.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 via-orange-500 to-orange-600 hover:scale-105 text-white font-semibold px-5 sm:px-7 py-3 sm:py-3.5 rounded-2xl shadow-[0_10px_40px_rgba(249,115,22,0.35)] transition-all duration-300 text-sm">
+                Try Now <ArrowRight size={15} />
+              </Link>
+              <Link href="https://play.google.com/store/apps/details?id=com.bayfay.customer" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-slate-200 hover:border-slate-300 bg-white text-slate-600 text-sm font-medium px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl hover:bg-slate-50 transition-all duration-200">
+                Google Play <ExternalLink size={13} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── DIVIDER ── */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
+        <div className="h-px bg-slate-200" />
+      </div>
+
+      {/* ── PRODUCT 2: SHORTS STUDIO ── */}
+      <section id="shorts" className="relative overflow-hidden px-4 sm:px-6 py-16 sm:py-20 md:py-28">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-100 via-sky-50 to-pink-100 pointer-events-none" />
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-100/40 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center transition-all duration-500 hover:scale-[1.01]">
+
+          {/* Content — left */}
+          <div className="flex flex-col gap-6 sm:gap-8 md:order-1 order-2" data-aos="fade-right">
+            <div className="space-y-3 sm:space-y-4">
+              <span className="text-xs font-bold tracking-widest uppercase text-purple-600 bg-purple-50 border border-purple-100 px-3 py-1.5 rounded-full">
+                AI Content Pipeline
+              </span>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-[-0.05em] text-slate-900">
+                Shorts{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+                  Studio
+                </span>
+              </h2>
+              <p className="text-base sm:text-lg leading-relaxed text-slate-600">
+                An enterprise-grade, self-hosted AI production pipeline that automates scripting, voiceovers, editing, captions, thumbnails, and publishing — run unlimited YouTube channels on autopilot.
+              </p>
+            </div>
+
+            <ul className="space-y-3 sm:space-y-4">
+              {[
+                { icon: <Bot size={16} />, text: '7-step AI pipeline: script → voice → edit → publish', bg: 'bg-purple-50', color: 'text-purple-600' },
+                { icon: <BarChart2 size={16} />, text: 'Multi-channel dashboard with RPM-aware analytics', bg: 'bg-blue-50', color: 'text-blue-600' },
+                { icon: <Clapperboard size={16} />, text: 'Supports 9:16 Shorts and 16:9 long-form videos', bg: 'bg-pink-50', color: 'text-pink-600' },
+                { icon: <Tag size={16} />, text: 'White-label ready — deploy under your own brand', bg: 'bg-orange-50', color: 'text-orange-600' },
+                { icon: <RefreshCw size={16} />, text: '1-click manual review queue before every publish', bg: 'bg-emerald-50', color: 'text-emerald-600' },
+              ].map((f) => (
+                <li key={f.text} className="flex items-center gap-3 sm:gap-4">
+                  <span className={`w-9 h-9 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${f.bg} ${f.color}`}>
+                    {f.icon}
+                  </span>
+                  <span className="text-sm sm:text-base text-slate-600 leading-snug">{f.text}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex flex-wrap gap-3">
+              <Link href="https://support.pickzy.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 via-purple-500 to-purple-600 hover:scale-105 text-white font-semibold px-5 sm:px-7 py-3 sm:py-3.5 rounded-2xl shadow-[0_10px_40px_rgba(168,85,247,0.35)] transition-all duration-300 text-sm">
+                Try Now <ArrowRight size={15} />
+              </Link>
+              <Link href="/contact-us" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-slate-200 hover:border-slate-300 bg-white text-slate-600 text-sm font-medium px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl hover:bg-slate-50 transition-all duration-200">
+                Request demo <ExternalLink size={13} />
+              </Link>
+            </div>
+          </div>
+
+          {/* Slider — right */}
+          <div className="relative md:order-2 order-1" data-aos="fade-left">
+            <div className="absolute -inset-4 bg-gradient-to-r from-purple-200 to-pink-200 rounded-3xl blur-2xl opacity-20 pointer-events-none" />
+            <ProductSlider slides={studioSlides} />
+            {/* Floating card – responsive */}
+            <div className="absolute -bottom-4 -left-2 sm:-bottom-5 sm:-left-4 bg-white/90 backdrop-blur-xl rounded-2xl shadow-[0_20px_60px_rgba(15,23,42,0.12)] border border-white px-4 py-2.5 sm:px-5 sm:py-3.5 flex items-center gap-2 sm:gap-3 z-10">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-purple-50 flex items-center justify-center">
+                <Bot size={18} className="text-purple-500" />
+              </div>
+              <div>
+                <div className="text-xs sm:text-sm font-bold text-slate-800">AI Powered</div>
+                <div className="text-[10px] sm:text-xs text-slate-400">Fully automated pipeline</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="px-4 sm:px-6 py-8 sm:py-12 pb-16 sm:pb-24">
+        <div className="max-w-6xl mx-auto" data-aos="zoom-in">
+          <div className="relative overflow-hidden rounded-[40px] bg-gradient-to-br from-orange-50 via-pink-50 to-violet-100 border border-orange-100 px-6 sm:px-10 py-16 sm:py-24 text-center shadow-xl">
+            {/* Glow orbs */}
+            <div className="absolute -top-20 -left-20 w-96 h-96 bg-orange-300/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-violet-300/30 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-pink-200/20 rounded-full blur-3xl pointer-events-none" />
+            <svg className="absolute inset-0 w-full h-full opacity-[0.05]" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="dots2" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <circle cx="1.5" cy="1.5" r="1.5" fill="#7c3aed" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#dots2)" />
+            </svg>
+
+            <div className="relative space-y-5 sm:space-y-6">
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-orange-500 bg-white border border-orange-200 shadow-sm px-4 py-1.5 rounded-full">
+                <Handshake size={13} /> Let's Build Together
+              </span>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-[-0.05em] text-slate-900">
+                Want to partner{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500">
+                  with us?
+                </span>
+              </h3>
+              <p className="text-slate-500 text-base sm:text-lg max-w-md mx-auto leading-relaxed">
+                Whether you want to list your store on BayFay or license Shorts Studio for your agency — we'd love to talk.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                <Link href="/contact-us" className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500 hover:from-orange-600 hover:via-pink-600 hover:to-violet-600 hover:scale-105 text-white font-semibold px-7 sm:px-9 py-3 sm:py-4 rounded-2xl shadow-[0_10px_40px_rgba(236,72,153,0.25)] transition-all duration-300 text-sm sm:text-base">
+                  Get in touch <ArrowRight size={16} />
+                </Link>
+                <Link href="/portfolio" className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-medium px-7 sm:px-9 py-3 sm:py-4 rounded-xl transition-all duration-200 shadow-sm text-sm sm:text-base">
+                  View case studies <ExternalLink size={14} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}

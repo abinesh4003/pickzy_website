@@ -259,7 +259,7 @@ export default function DedicatedTeam() {
       {/* Our Dedicated Team Expertise Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Our <span className="text-blue-600">Dedicated Team</span> Expertise
             </h2>
@@ -271,7 +271,7 @@ export default function DedicatedTeam() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {expertise.map((item, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 bg-gray-50 group">
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0 bg-gray-50 group" data-aos="fade-up" data-aos-delay={index * 100}>
                 <CardHeader className="p-4 md:p-6">
                   <div className="flex items-center mb-3 md:mb-4">
                     <div className="p-2 md:p-3 mr-3 md:mr-4 rounded-lg bg-blue-50 group-hover:bg-blue-100 transition-colors">
@@ -292,7 +292,7 @@ export default function DedicatedTeam() {
       {/* Capabilities Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Our <span className="text-blue-600">Dedicated Team</span> Capabilities
             </h2>
@@ -304,7 +304,7 @@ export default function DedicatedTeam() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {capabilities.map((cap, index) => (
-              <div key={index} className="bg-white p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100">
+              <div key={index} className="bg-white p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-100" data-aos="fade-up" data-aos-delay={index * 100}>
                 <div className="flex items-center mb-3 md:mb-4">
                   <div className="p-2 rounded-lg bg-blue-50 mr-3">
                     {cap.icon}
@@ -328,7 +328,7 @@ export default function DedicatedTeam() {
       {/* Technologies Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Technologies <span className="text-blue-600">We Master</span>
             </h2>
@@ -340,7 +340,7 @@ export default function DedicatedTeam() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
             {technologies.map((tech, index) => (
-              <div key={index} className="flex flex-col items-center">
+              <div key={index} className="flex flex-col items-center" data-aos="fade-up" data-aos-delay={index * 50}>
                 <div className="w-12 h-12 md:w-16 md:h-16 bg-gray-50 rounded-lg shadow-sm flex items-center justify-center p-2 md:p-3 mb-2 md:mb-3">
                   <img src={tech.icon} alt={tech.name} className="w-full h-auto max-h-8 md:max-h-10 object-contain" />
                 </div>
@@ -354,7 +354,7 @@ export default function DedicatedTeam() {
       {/* Process Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               How We <span className="text-blue-600">Build Your Team</span>
             </h2>
@@ -366,7 +366,7 @@ export default function DedicatedTeam() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {processSteps.map((step, index) => (
-              <div key={index} className="group relative bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300">
+              <div key={index} className="group relative bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay={index * 100}>
                 <div className="p-5 md:p-6">
                   <div className="w-10 h-10 md:w-12 md:h-12 mb-3 md:mb-4 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 font-bold text-lg md:text-xl">
                     {step.step}
@@ -391,7 +391,7 @@ export default function DedicatedTeam() {
       {/* Benefits Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Why Choose <span className="text-blue-600">Our Dedicated Teams</span>
             </h2>
@@ -403,7 +403,7 @@ export default function DedicatedTeam() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start gap-3 md:gap-4">
+              <div key={index} className="flex items-start gap-3 md:gap-4" data-aos="fade-up" data-aos-delay={index * 100}>
                 <div className="flex-shrink-0 mt-1">
                   <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-100 flex items-center justify-center">
                     {benefit.icon}
@@ -422,7 +422,7 @@ export default function DedicatedTeam() {
       {/* Testimonials Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               What Our <span className="text-blue-600">Clients</span> Say
             </h2>
@@ -434,7 +434,7 @@ export default function DedicatedTeam() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white p-5 md:p-6 rounded-xl shadow-sm border border-gray-100">
+              <div key={index} className="bg-white p-5 md:p-6 rounded-xl shadow-sm border border-gray-100" data-aos="fade-up" data-aos-delay={index * 150}>
                 <div className="mb-4 md:mb-6">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
@@ -459,7 +459,7 @@ export default function DedicatedTeam() {
       <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Users className="h-10 w-10 md:h-12 md:w-12 text-white mx-auto mb-4 md:mb-6" />
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4" data-aos="fade-up">
             Ready to Build Your <span className="text-blue-200">Dedicated Team</span>?
           </h2>
           <div className="w-16 md:w-20 h-1 bg-blue-200 mx-auto mb-4 md:mb-6"></div>

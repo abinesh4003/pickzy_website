@@ -246,7 +246,7 @@ export default function AIAutomationDevelopment() {
       {/* Why AI & Automation Matters */}
       <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Why Your Business Needs <span className="text-blue-600">AI & Automation</span>
             </h2>
@@ -257,7 +257,7 @@ export default function AIAutomationDevelopment() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="space-y-6">
+            <div className="space-y-6" data-aos="fade-right">
               {[
                 {
                   title: "Eliminate Repetitive Tasks",
@@ -287,7 +287,7 @@ export default function AIAutomationDevelopment() {
                 </div>
               ))}
             </div>
-            <div className="relative rounded-xl overflow-hidden shadow-lg border border-gray-200">
+            <div className="relative rounded-xl overflow-hidden shadow-lg border border-gray-200" data-aos="fade-left">
               <img
                 src="/service/ai/why.jpg"
                 alt="AI automation benefits"
@@ -303,7 +303,7 @@ export default function AIAutomationDevelopment() {
       {/* Our Core Expertise */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Our <span className="text-blue-600">AI & Automation</span> Expertise
             </h2>
@@ -315,7 +315,7 @@ export default function AIAutomationDevelopment() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {expertise.map((item, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 border border-gray-100 group">
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 border border-gray-100 group" data-aos="fade-up" data-aos-delay={index * 100}>
                 <CardHeader className="p-4 md:p-6">
                   <div className={`p-2 md:p-3 rounded-lg ${item.bgColor} w-10 h-10 md:w-12 md:h-12 flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform`}>
                     {item.icon}
@@ -334,7 +334,7 @@ export default function AIAutomationDevelopment() {
       {/* Our AI & Automation Capabilities */}
       <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Comprehensive <span className="text-blue-600">Technical</span> Capabilities
             </h2>
@@ -346,7 +346,7 @@ export default function AIAutomationDevelopment() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {capabilities.map((cap, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 border border-gray-100">
+              <Card key={index} className="hover:shadow-lg transition-all duration-300 border border-gray-100" data-aos="fade-up" data-aos-delay={index * 100}>
                 <CardHeader className="p-4 md:p-6">
                   <div className="p-2 md:p-3 rounded-lg bg-blue-50 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center mb-3 md:mb-4">
                     {cap.icon}
@@ -372,7 +372,7 @@ export default function AIAutomationDevelopment() {
       {/* How We Work / Our Process */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Our <span className="text-blue-600">AI & Automation</span> Process
             </h2>
@@ -384,7 +384,7 @@ export default function AIAutomationDevelopment() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {processSteps.map((step, index) => (
-              <div key={index} className="group relative bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300">
+              <div key={index} className="group relative bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay={index * 100}>
                 <div className="p-4 md:p-6">
                   <div className="w-10 h-10 md:w-12 md:h-12 mb-3 md:mb-4 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 font-bold text-lg md:text-xl">
                     {step.step}
@@ -409,7 +409,7 @@ export default function AIAutomationDevelopment() {
       {/* Technologies We Use */}
       <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Powerful <span className="text-blue-600">Technologies</span>. Better Results.
             </h2>
@@ -421,7 +421,7 @@ export default function AIAutomationDevelopment() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
             {technologies.map((tech, index) => (
-              <div key={index} className="flex flex-col items-center justify-center p-4 md:p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all">
+              <div key={index} className="flex flex-col items-center justify-center p-4 md:p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all" data-aos="fade-up" data-aos-delay={index * 50}>
                 <img src={tech.icon} alt={tech.name} className="h-8 md:h-12 w-auto object-contain mb-2 md:mb-3" />
                 <span className="text-xs md:text-sm font-medium text-gray-700 text-center">{tech.name}</span>
               </div>
@@ -433,7 +433,7 @@ export default function AIAutomationDevelopment() {
       {/* Industries We Serve */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               We Help Businesses Across <span className="text-blue-600">Industries</span>
             </h2>
@@ -445,7 +445,7 @@ export default function AIAutomationDevelopment() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {industries.map((industry, index) => (
-              <div key={index} className="bg-gray-50 p-5 md:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+              <div key={index} className="bg-gray-50 p-5 md:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100" data-aos="fade-up" data-aos-delay={index * 100}>
                 <div className="text-3xl md:text-4xl mb-2 md:mb-3 text-blue-600">{industry.icon}</div>
                 <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1 md:mb-2">{industry.name}</h3>
                 <p className="text-sm md:text-base text-gray-600">{industry.description}</p>
@@ -458,7 +458,7 @@ export default function AIAutomationDevelopment() {
       {/* Testimonials */}
       <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Real <span className="text-blue-600">Results</span>. Real Businesses.
             </h2>
@@ -470,7 +470,7 @@ export default function AIAutomationDevelopment() {
 
           <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
+              <Card key={index} className="hover:shadow-lg transition-shadow" data-aos="fade-up" data-aos-delay={index * 150}>
                 <CardContent className="p-5 md:p-6">
                   <div className="mb-3 md:mb-4 text-yellow-400">
                     {[...Array(5)].map((_, i) => (
@@ -495,7 +495,7 @@ export default function AIAutomationDevelopment() {
       {/* Why Choose Us */}
       <section className="py-12 md:py-16 lg:py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-8 md:mb-12 lg:mb-16" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">
               Why Businesses <span className="text-blue-400">Trust Us</span>
             </h2>
@@ -507,7 +507,7 @@ export default function AIAutomationDevelopment() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start">
+              <div key={index} className="flex items-start" data-aos="fade-up" data-aos-delay={index * 100}>
                 <div className="flex-shrink-0 mt-1 mr-3 md:mr-4 text-blue-400">
                   <CheckCircle className="h-5 w-5 md:h-6 md:w-6" />
                 </div>
@@ -523,14 +523,14 @@ export default function AIAutomationDevelopment() {
       {/* FAQ Section */}
       <section className="py-12 md:py-16 lg:py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12">
+          <div className="text-center mb-8 md:mb-12" data-aos="fade-up">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">Frequently Asked Questions</h2>
             <div className="w-16 md:w-20 h-1 bg-blue-600 mx-auto mb-4 md:mb-6"></div>
             <p className="text-base sm:text-lg md:text-xl text-gray-600">Everything you need to know about our AI & Automation services.</p>
           </div>
           <div className="space-y-4">
             {faqItems.map((item, idx) => (
-              <div key={idx} className="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden">
+              <div key={idx} className="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay={idx * 100}>
                 <button
                   onClick={() => toggleFaq(idx)}
                   className="w-full flex justify-between items-center p-4 md:p-6 text-left font-semibold text-gray-900 hover:bg-gray-100 transition-colors text-sm md:text-base"
@@ -553,7 +553,7 @@ export default function AIAutomationDevelopment() {
       <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Rocket className="h-10 w-10 md:h-12 md:w-12 text-white mx-auto mb-4 md:mb-6" />
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4" data-aos="fade-up">
             Ready to <span className="text-blue-200">Automate & Innovate</span>?
           </h2>
           <div className="w-16 md:w-20 h-1 bg-blue-200 mx-auto mb-4 md:mb-6"></div>

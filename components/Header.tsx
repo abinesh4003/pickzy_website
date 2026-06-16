@@ -372,6 +372,19 @@ export default function Header() {
             >
               Contact
             </Link>
+
+             
+            {/* 8. Our products */}
+            <Link
+              href="/our_products"
+              className={`block px-3 py-2 text-base font-medium rounded-md ${
+                pathname === "/our_products"
+                  ? ' text-blue-600'
+                  : 'text-gray-600 hover:bg-gray-50'
+              }`}
+            >
+              Our Products
+            </Link>
           </nav>
 
           {/* Desktop CTA Buttons */}
