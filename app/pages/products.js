@@ -246,9 +246,7 @@ export default function ProductsPage() {
               <Link href="https://support.pickzy.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 via-purple-500 to-purple-600 hover:scale-105 text-white font-semibold px-5 sm:px-7 py-3 sm:py-3.5 rounded-2xl shadow-[0_10px_40px_rgba(168,85,247,0.35)] transition-all duration-300 text-sm">
                 Try Now <ArrowRight size={15} />
               </Link>
-              <Link href="/contact-us" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-slate-200 hover:border-slate-300 bg-white text-slate-600 text-sm font-medium px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl hover:bg-slate-50 transition-all duration-200">
-                Request demo <ExternalLink size={13} />
-              </Link>
+             
             </div>
           </div>
 

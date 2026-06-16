@@ -376,9 +376,9 @@ export default function Header() {
              
             {/* 8. Our products */}
             <Link
-              href="/our_products"
+              href="/our-products"
               className={`block px-3 py-2 text-base font-medium rounded-md ${
-                pathname === "/our_products"
+                pathname === "/our-products"
                   ? ' text-blue-600'
                   : 'text-gray-600 hover:bg-gray-50'
               }`}
