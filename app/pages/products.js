@@ -85,7 +85,18 @@ export default function ProductsPage() {
     <div className="min-h-screen bg-white font-sans text-slate-900 antialiased">
 
       {/* ── HERO ── */}
-      <section aria-label="BayFay and Shorts Studio products hero" className="relative overflow-hidden min-h-[380px] xs:min-h-[480px] md:min-h-[720px] flex items-center justify-center px-4 sm:px-6">
+      <section aria-label="BayFay and Shorts Studio products hero"  className="
+    relative
+    overflow-hidden
+    min-h-[520px]
+    sm:min-h-[620px]
+    md:min-h-[720px]
+    flex
+    items-center
+    justify-center
+    px-4
+    sm:px-6
+  ">
 
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -96,7 +107,13 @@ export default function ProductsPage() {
 
         <div className="relative z-10 max-w-5xl mx-auto text-center">
           <h1
-            className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-black tracking-[-0.06em] leading-[0.9] text-slate-900 text-center" data-aos="fade-down" data-aos-delay="0"
+            className="text-4xl
+sm:text-5xl
+md:text-6xl
+font-black
+tracking-[-0.04em]
+leading-tight
+md:leading-[1.05] text-slate-900 text-center" data-aos="fade-down" data-aos-delay="0"
           >
             <span className="block">
               <span className="bg-gradient-to-r from-orange-500 via-orange-400 to-blue-600 bg-clip-text text-transparent">

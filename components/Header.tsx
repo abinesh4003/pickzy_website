@@ -536,7 +536,18 @@ export default function Header() {
             >
               Contact
             </Link>
-            
+              {/* 7. our products */}
+             <Link
+              href="/our-products"
+              className={`block px-3 py-2 text-base font-medium rounded-md ${
+                pathname === "/our-products"
+                  ? 'bg-blue-50 text-blue-600'
+                  : 'text-gray-600 hover:bg-gray-50'
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Our Products
+            </Link>
             {/* Mobile CTA Buttons */}
             <div className="px-3 pt-2 space-y-2 border-t">
               <Button variant="outline" className="w-full" asChild>

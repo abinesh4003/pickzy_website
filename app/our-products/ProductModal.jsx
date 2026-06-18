@@ -121,13 +121,13 @@ function AppCarousel({ images }) {
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {images.map((img, i) => (
-            <div key={i} className="flex-[0_0_100%] min-w-0 flex items-center justify-center p-4 relative h-64 sm:h-80 md:h-96 lg:h-[400px]">
+            <div key={i} className="flex-[0_0_100%] min-w-0 flex items-center justify-center p-4 relative" style={{ height: '400px' }}>
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, 40vw"
+               loading="lazy"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-contain"
               />
             </div>
@@ -136,10 +136,10 @@ function AppCarousel({ images }) {
       </div>
       {images.length > 1 && (
         <>
-          <button onClick={prev} className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/90 shadow border border-slate-100 flex items-center justify-center text-slate-600 hover:bg-white transition-all opacity-0 group-hover:opacity-100">
+          <button onClick={prev} className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/90 shadow border border-slate-100 flex items-center justify-center text-slate-600 hover:bg-white transition-all opacity-0 group-hover:opacity-100">
             <ChevronLeft size={15} />
           </button>
-          <button onClick={next} className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/90 shadow border border-slate-100 flex items-center justify-center text-slate-600 hover:bg-white transition-all opacity-0 group-hover:opacity-100">
+          <button onClick={next} className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/90 shadow border border-slate-100 flex items-center justify-center text-slate-600 hover:bg-white transition-all opacity-0 group-hover:opacity-100">
             <ChevronRight size={15} />
           </button>
         </>
@@ -162,25 +162,26 @@ export default function ProductModal({ isOpen, onClose, type }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div
-        className="relative bg-white rounded-3xl shadow-2xl flex flex-col overflow-hidden w-full max-w-6xl h-[95vh] sm:h-[90vh] md:h-[85vh] lg:h-[80vh] max-h-[900px]"
+        className="relative bg-white rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+        style={{ width: '80vw', height: '80vh' }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-slate-100 flex-shrink-0">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 flex-shrink-0">
           {type === 'bayfay' ? (
             <div>
-              <Image src="/assets/bayfay-logo.png" alt="BayFay logo" width={120} height={40} loading="lazy" className="h-8 sm:h-10 w-auto" />
-              <p className="text-[10px] sm:text-xs text-slate-400 mt-0.5">The Complete Hyperlocal Marketplace & Delivery Ecosystem</p>
+              <Image src="/assets/bayfay-logo.png" alt="BayFay logo" width={120} height={40} loading="lazy" className="h-10 w-auto" />
+              <p className="text-xs text-slate-400 mt-0.5">The Complete Hyperlocal Marketplace & Delivery Ecosystem</p>
             </div>
           ) : (
             <div>
-              <h2 className="text-xl sm:text-2xl font-black tracking-tight text-slate-900">
+              <h2 className="text-2xl font-black tracking-tight text-slate-900">
                 Shorts <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Studio</span>
               </h2>
-              <p className="text-[10px] sm:text-xs text-slate-400 mt-0.5">AI-Powered Creator Toolkit & White-Label Pipeline</p>
+              <p className="text-xs text-slate-400 mt-0.5">AI-Powered Creator Toolkit & White-Label Pipeline</p>
             </div>
           )}
           <button onClick={onClose} className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200 transition-colors">
@@ -193,11 +194,11 @@ export default function ProductModal({ isOpen, onClose, type }) {
           {type === 'bayfay' ? (
             <>
               {/* Overview banner */}
-              <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-5 bg-orange-50/50 border-b border-orange-100">
+              <div className="px-8 py-5 bg-orange-50/50 border-b border-orange-100">
                 <p className="text-sm text-slate-600 leading-relaxed">
                   <span className="font-bold">Bayfay </span> is an all-in-one hyperlocal digital ecosystem that bridges the gap between local communities, physical merchants, wholesale suppliers, and independent logistics networks — empowering neighborhood stores with digital toolkits and creating a self-sustaining local economy.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 mt-4">
+                <div className="flex gap-6 mt-4">
                   {[
                     { for: 'Shoppers', desc: 'Ultra-fast ordering from trusted shops next door' },
                     { for: 'Retailers & Wholesalers', desc: 'Unified retail + B2B supplier pipeline' },
@@ -214,24 +215,24 @@ export default function ProductModal({ isOpen, onClose, type }) {
               {/* 3 app rows */}
               {BAYFAY_APPS.map((app, i) => (
                 <div key={app.id}>
-                  <div className="flex flex-col md:flex-row">
+                  <div className="flex">
                     {/* Left — carousel */}
-                    <div className="w-full md:w-1/2 flex-shrink-0 bg-slate-50 border-b md:border-b-0 md:border-r border-slate-100">
+                    <div className="w-1/2 flex-shrink-0 bg-slate-50 border-r border-slate-100">
                       <AppCarousel images={app.images} />
                     </div>
                     {/* Right — content */}
-                    <div className="w-full md:w-1/2 flex flex-col justify-center gap-3 sm:gap-4 px-4 sm:px-6 md:px-7 py-4 sm:py-6">
+                    <div className="w-1/2 flex flex-col justify-center gap-4 px-7 py-6">
                       <span className={`text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full border w-fit ${app.tagStyle}`}>
                         {app.tag}
                       </span>
                       <div className="flex items-center gap-3">
-                        <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center text-lg sm:text-xl flex-shrink-0 ${app.iconBg}`}>
+                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0 ${app.iconBg}`}>
                           {app.icon}
                         </div>
-                        <p className="text-base sm:text-lg font-bold text-slate-900 leading-tight">{app.name}</p>
+                        <p className="text-lg font-bold text-slate-900 leading-tight">{app.name}</p>
                       </div>
                       <p className="text-sm text-slate-500 leading-relaxed">{app.desc}</p>
-                      <ul className="space-y-1.5 sm:space-y-2">
+                      <ul className="space-y-2">
                         {app.features.map(f => (
                           <li key={f} className="flex items-start gap-2 text-sm text-slate-600">
                             <span className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 ${app.dotColor}`} />
@@ -241,8 +242,8 @@ export default function ProductModal({ isOpen, onClose, type }) {
                       </ul>
                       <div className="grid grid-cols-2 gap-2">
                         {app.stats.map(s => (
-                          <div key={s.label} className={`rounded-xl p-2 sm:p-3 text-center ${app.statBg}`}>
-                            <p className={`text-base sm:text-lg font-black ${app.statColor}`}>{s.val}</p>
+                          <div key={s.label} className={`rounded-xl p-3 text-center ${app.statBg}`}>
+                            <p className={`text-lg font-black ${app.statColor}`}>{s.val}</p>
                             <p className="text-[10px] text-slate-400 mt-0.5">{s.label}</p>
                           </div>
                         ))}
@@ -259,22 +260,22 @@ export default function ProductModal({ isOpen, onClose, type }) {
           ) : (
             <>
               {/* Studio overview */}
-              <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-5 bg-purple-50/50 border-b border-purple-100">
+              <div className="px-8 py-5 bg-purple-50/50 border-b border-purple-100">
                 <p className="text-sm text-slate-600 leading-relaxed">
                   Shorts Studio is a complete, enterprise-grade AI production pipeline that automates scripting, voiceovers, editing, captioning, thumbnail generation and publishing — all in one self-hosted, white-label ready dashboard. Run unlimited YouTube channels on autopilot.
                 </p>
               </div>
 
               {/* Features */}
-              <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-6 space-y-4 border-b border-slate-100">
+              <div className="px-8 py-6 space-y-4 border-b border-slate-100">
                 <p className="text-xs font-bold uppercase tracking-widest text-slate-400">🌟 Key Features</p>
                 <div className="space-y-4">
                   {STUDIO_FEATURES.map(f => (
-                    <div key={f.title} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                      <div className="w-full sm:w-1/6 flex-shrink-0 bg-purple-50 rounded-2xl flex items-center justify-center text-2xl p-3 sm:p-0 sm:min-h-[80px]">
+                    <div key={f.title} className="flex gap-4 min-h-[80px]">
+                      <div className="w-1/6 flex-shrink-0 bg-purple-50 rounded-2xl flex items-center justify-center text-2xl">
                         {f.icon}
                       </div>
-                      <div className="w-full sm:w-5/6 flex flex-col justify-center">
+                      <div className="w-5/6 flex flex-col justify-center">
                         <p className="text-sm font-bold text-slate-800">{f.title}</p>
                         <p className="text-sm text-slate-500 mt-1 leading-relaxed">{f.desc}</p>
                       </div>
@@ -284,9 +285,9 @@ export default function ProductModal({ isOpen, onClose, type }) {
               </div>
 
               {/* Advantages */}
-              <div className="px-4 sm:px-6 md:px-8 py-4 sm:py-6">
+              <div className="px-8 py-6">
                 <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">🏆 Who It's For</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                <div className="grid grid-cols-3 gap-3">
                   {STUDIO_ADVANTAGES.map(a => (
                     <div key={a.for} className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-4 border border-purple-100">
                       <p className="text-sm font-bold text-purple-700">{a.for}</p>
@@ -300,26 +301,26 @@ export default function ProductModal({ isOpen, onClose, type }) {
         </div>
 
         {/* Footer */}
-        <div className="flex flex-col sm:flex-row items-center justify-end gap-2 px-4 sm:px-6 py-3 border-t border-slate-100 flex-shrink-0">
+        <div className="flex items-center justify-end gap-2 px-6 py-3.5 border-t border-slate-100 flex-shrink-0">
           {type === 'bayfay' ? (
             <>
               <a href="https://play.google.com/store/apps/details?id=com.bayfay.customer" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 border border-slate-200 text-slate-600 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-slate-50 transition-colors w-full sm:w-auto justify-center">
+                className="inline-flex items-center gap-1.5 border border-slate-200 text-slate-600 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-slate-50 transition-colors">
                 Google Play <ExternalLink size={11} />
               </a>
               <a href="https://bayfay.com" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-xl text-xs font-semibold transition-colors w-full sm:w-auto justify-center">
+                className="inline-flex items-center gap-1.5 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-xl text-xs font-semibold transition-colors">
                 Try BayFay <ArrowRight size={11} />
               </a>
             </>
           ) : (
             <>
               <a href="https://support.pickzy.com/" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 border border-slate-200 text-slate-600 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-slate-50 transition-colors w-full sm:w-auto justify-center">
+                className="inline-flex items-center gap-1.5 border border-slate-200 text-slate-600 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-slate-50 transition-colors">
                 Request Demo <ExternalLink size={11} />
               </a>
               <a href="https://support.pickzy.com/" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-xl text-xs font-semibold transition-colors w-full sm:w-auto justify-center">
+                className="inline-flex items-center gap-1.5 bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-xl text-xs font-semibold transition-colors">
                 Learn More <ArrowRight size={11} />
               </a>
             </>
