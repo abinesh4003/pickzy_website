@@ -1,15 +1,19 @@
 'use client';
 import { useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight, ArrowRight, ExternalLink } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
+import Link from 'next/link';
 
+// ─── BayFay Apps Data ──────────────────────────────────────────
 const BAYFAY_APPS = [
   {
     id: 'customer',
     tag: 'Customer App',
     tagStyle: 'text-orange-700 bg-orange-50 border-orange-200',
     icon: '🛒',
+    link: 'https://play.google.com/store/apps/details?id=com.bayfay.customer',
     iconBg: 'bg-orange-50',
     name: 'Shop from your neighbourhood',
     desc: 'Browse and order from trusted local stores within a 5 km radius — groceries, pharmacy, bakery and more, delivered to your door 24×7.',
@@ -26,11 +30,10 @@ const BAYFAY_APPS = [
     images: [
       { src: '/assets/products/customerapp/unnamed.webp', alt: 'BayFay Customer App' },
       { src: '/assets/products/customerapp/unnamed (1).webp', alt: 'BayFay Customer App 2' },
-          { src: '/assets/products/customerapp/unnamed (2).webp', alt: 'BayFay Customer App 2' },
-              { src: '/assets/products/customerapp/unnamed (3).webp', alt: 'BayFay Customer App 2' },
-                  { src: '/assets/products/customerapp/unnamed (4).webp', alt: 'BayFay Customer App 2' },
-                      { src: '/assets/products/customerapp/unnamed (5).webp', alt: 'BayFay Customer App 2' },
-
+      { src: '/assets/products/customerapp/unnamed (2).webp', alt: 'BayFay Customer App 2' },
+      { src: '/assets/products/customerapp/unnamed (3).webp', alt: 'BayFay Customer App 2' },
+      { src: '/assets/products/customerapp/unnamed (4).webp', alt: 'BayFay Customer App 2' },
+      { src: '/assets/products/customerapp/unnamed (5).webp', alt: 'BayFay Customer App 2' },
     ],
   },
   {
@@ -39,12 +42,14 @@ const BAYFAY_APPS = [
     tagStyle: 'text-blue-700 bg-blue-50 border-blue-200',
     icon: '🏪',
     iconBg: 'bg-blue-50',
+    link: 'https://play.google.com/store/apps/details?id=com.bayfay.merchant',
     name: 'Digitize your shop in minutes',
     desc: 'Register your store, build a digital storefront, manage inventory and orders — all from one powerful merchant dashboard.',
     dotColor: 'bg-blue-500',
     statBg: 'bg-blue-50',
     statColor: 'text-blue-700',
     stats: [{ val: 'B2B', label: 'Wholesale access' }, { val: 'Live', label: 'Order dashboard' }],
+
     features: [
       'Create and manage your digital storefront instantly',
       'Real-time inventory and stock level management',
@@ -62,32 +67,33 @@ const BAYFAY_APPS = [
       { src: '/assets/products/merchantapp/unnamed (7).webp', alt: 'BayFay Merchant App 2' },
       { src: '/assets/products/merchantapp/unnamed (8).webp', alt: 'BayFay Merchant App 2' },
       { src: '/assets/products/merchantapp/unnamed (9).webp', alt: 'BayFay Merchant App 2' },
+    ],
 
-    ],
   },
-  {
-    id: 'delivery',
-    tag: 'Delivery App',
-    tagStyle: 'text-purple-700 bg-purple-50 border-purple-200',
-    icon: '🚴',
-    iconBg: 'bg-purple-50',
-    name: 'Earn on your own schedule',
-    desc: 'Anyone can register as a delivery associate, pick up nearby orders within 5 km and start earning — no fleet needed. Agencies can partner for regional ops.',
-    dotColor: 'bg-purple-500',
-    statBg: 'bg-purple-50',
-    statColor: 'text-purple-700',
-    stats: [{ val: 'Open', label: 'Anyone can join' }, { val: 'Agency', label: 'Partner program' }],
-    features: [
-      'Register and start delivering — zero barrier to entry',
-      'Pick up orders within your active 5 km zone',
-      'Live map navigation for efficient routing',
-      'Delivery agencies can partner for fleet management',
-    ],
-    images: [
-      { src: '/assets/products/bayfay_delivery.jpg', alt: 'BayFay Delivery App' },
-      { src: '/assets/products/bayfay_delivery2.jpg', alt: 'BayFay Delivery App 2' },
-    ],
-  },
+  // {
+  //   id: 'delivery',
+  //   tag: 'Delivery App',
+  //   tagStyle: 'text-purple-700 bg-purple-50 border-purple-200',
+  //   icon: '🚴',
+  //   iconBg: 'bg-purple-50',
+  //   link: 'https://play.google.com/store/apps/details?id=com.bayfay.deliveryv2',
+  //   name: 'Earn on your own schedule',
+  //   desc: 'Anyone can register as a delivery associate, pick up nearby orders within 5 km and start earning — no fleet needed. Agencies can partner for regional ops.',
+  //   dotColor: 'bg-purple-500',
+  //   statBg: 'bg-purple-50',
+  //   statColor: 'text-purple-700',
+  //   stats: [{ val: 'Open', label: 'Anyone can join' }, { val: 'Agency', label: 'Partner program' }],
+  //   features: [
+  //     'Register and start delivering — zero barrier to entry',
+  //     'Pick up orders within your active 5 km zone',
+  //     'Live map navigation for efficient routing',
+  //     'Delivery agencies can partner for fleet management',
+  //   ],
+  //   images: [
+  //     { src: '/assets/products/bayfay_delivery.jpg', alt: 'BayFay Delivery App' },
+  //     { src: '/assets/products/bayfay_delivery2.jpg', alt: 'BayFay Delivery App 2' },
+  //   ],
+  // },
 ];
 
 const STUDIO_FEATURES = [
@@ -104,6 +110,7 @@ const STUDIO_ADVANTAGES = [
   { for: 'Resellers', desc: 'Fully owned, white-label platform — not a subscription, it\'s yours.' },
 ];
 
+// ─── Carousel Component ────────────────────────────────────────
 function AppCarousel({ images }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 3000, stopOnInteraction: true })]);
   const prev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
@@ -114,8 +121,15 @@ function AppCarousel({ images }) {
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {images.map((img, i) => (
-            <div key={i} className="flex-[0_0_100%] min-w-0 flex items-center justify-center p-4" style={{ height: '400px' }}>
-              <img src={img.src} alt={img.alt} className="max-w-full object-contain" style={{ maxHeight: '400px' }} />
+            <div key={i} className="flex-[0_0_100%] min-w-0 flex items-center justify-center p-4 relative" style={{ height: '400px' }}>
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                priority={i === 0}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-contain"
+              />
             </div>
           ))}
         </div>
@@ -134,6 +148,7 @@ function AppCarousel({ images }) {
   );
 }
 
+// ─── Modal Component ──────────────────────────────────────────
 export default function ProductModal({ isOpen, onClose, type }) {
   useEffect(() => {
     if (!isOpen) return;
@@ -158,7 +173,7 @@ export default function ProductModal({ isOpen, onClose, type }) {
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 flex-shrink-0">
           {type === 'bayfay' ? (
             <div>
-              <img src="/assets/bayfay-logo.png" className=' h-10' />
+              <Image src="/assets/bayfay-logo.png" alt="BayFay logo" width={120} height={40} className="h-10 w-auto" />
               <p className="text-xs text-slate-400 mt-0.5">The Complete Hyperlocal Marketplace & Delivery Ecosystem</p>
             </div>
           ) : (
@@ -174,15 +189,14 @@ export default function ProductModal({ isOpen, onClose, type }) {
           </button>
         </div>
 
-        {/* Scrollable body — hidden scrollbar */}
+        {/* Scrollable body */}
         <div className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-
           {type === 'bayfay' ? (
             <>
               {/* Overview banner */}
               <div className="px-8 py-5 bg-orange-50/50 border-b border-orange-100">
                 <p className="text-sm text-slate-600 leading-relaxed">
-                <span className="font-bold">Bayfay </span> is an all-in-one hyperlocal digital ecosystem that bridges the gap between local communities, physical merchants, wholesale suppliers, and independent logistics networks — empowering neighborhood stores with digital toolkits and creating a self-sustaining local economy.
+                  <span className="font-bold">Bayfay </span> is an all-in-one hyperlocal digital ecosystem that bridges the gap between local communities, physical merchants, wholesale suppliers, and independent logistics networks — empowering neighborhood stores with digital toolkits and creating a self-sustaining local economy.
                 </p>
                 <div className="flex gap-6 mt-4">
                   {[
@@ -201,7 +215,7 @@ export default function ProductModal({ isOpen, onClose, type }) {
               {/* 3 app rows */}
               {BAYFAY_APPS.map((app, i) => (
                 <div key={app.id}>
-                  <div className="flex ">
+                  <div className="flex">
                     {/* Left — carousel */}
                     <div className="w-1/2 flex-shrink-0 bg-slate-50 border-r border-slate-100">
                       <AppCarousel images={app.images} />
@@ -234,6 +248,9 @@ export default function ProductModal({ isOpen, onClose, type }) {
                           </div>
                         ))}
                       </div>
+                      <Link href={app.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-500 hover:text-orange-600 transition-colors group/link">
+                        Download App <ArrowRight size={13} className="group-hover/link:translate-x-1 transition-transform duration-200" />
+                      </Link>
                     </div>
                   </div>
                   {i < BAYFAY_APPS.length - 1 && <div className="h-px bg-slate-200 my-4" />}
@@ -255,11 +272,9 @@ export default function ProductModal({ isOpen, onClose, type }) {
                 <div className="space-y-4">
                   {STUDIO_FEATURES.map(f => (
                     <div key={f.title} className="flex gap-4 min-h-[80px]">
-                      {/* Left icon */}
                       <div className="w-1/6 flex-shrink-0 bg-purple-50 rounded-2xl flex items-center justify-center text-2xl">
                         {f.icon}
                       </div>
-                      {/* Right content */}
                       <div className="w-5/6 flex flex-col justify-center">
                         <p className="text-sm font-bold text-slate-800">{f.title}</p>
                         <p className="text-sm text-slate-500 mt-1 leading-relaxed">{f.desc}</p>
