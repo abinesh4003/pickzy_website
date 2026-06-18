@@ -591,7 +591,7 @@ export default function Home() {
         px-4 sm:px-6 md:px-8 py-6
         rounded-2xl
         max-h-[90vh] overflow-y-auto
-      "
+      " data-lenis-prevent
               >
                 {selectedTestimonial && (
                   <>

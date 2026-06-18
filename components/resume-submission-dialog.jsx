@@ -196,7 +196,7 @@ export function ResumeSubmissionDialog() {
           Send Us Your Resume
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-[95vw] max-h-[90vh] overflow-y-auto sm:max-w-[500px] p-3 sm:p-4">
+      <DialogContent className="max-w-[95vw] max-h-[90vh] overflow-y-auto sm:max-w-[500px] p-3 sm:p-4" data-lenis-prevent>
         <DialogHeader className="mb-2">
           <DialogTitle className="text-base sm:text-lg">Submit Your Resume</DialogTitle>
         </DialogHeader>

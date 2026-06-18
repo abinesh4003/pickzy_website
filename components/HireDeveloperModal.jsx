@@ -184,7 +184,7 @@ export function HireDeveloperModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="w-[95vw] max-w-[600px] max-h-[90vh] overflow-y-auto rounded-none p-6">
+      <DialogContent className="w-[95vw] max-w-[600px] max-h-[90vh] overflow-y-auto rounded-none p-6" data-lenis-prevent>
         <DialogHeader className="text-center">
           <DialogTitle className="text-xl">
             {defaultDeveloper ? `Hire ${defaultDeveloper}` : 'Hire Developers'}

@@ -194,7 +194,7 @@ const ScheduleCallButton = ({btnName="Schedule a Call", className="" ,location="
     });
 
     return (
-        <div className="text-center">
+        <div className="text-center" data-lenis-prevent>
            
             <Button
                 size={size}
@@ -267,7 +267,7 @@ const ScheduleCallButton = ({btnName="Schedule a Call", className="" ,location="
                             </div>
 
                             {/* Modal Content */}
-                            <div className="flex-1 overflow-auto p-4">
+                            <div className="flex-1 overflow-auto p-4" data-lenis-prevent>
                                 {step === 1 && (
                                     <motion.div
                                         initial={{ opacity: 0 }}

@@ -15,14 +15,17 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
 
   return (
     <div className="min-h-screen flex flex-col max-w-screen">
-       <ReactLenis
-      root
-      options={{
-        lerp: 0.08,
-        duration: 1.2,
-        smoothWheel: true,
-      }}
-    > 
+ <ReactLenis
+  root
+  options={{
+    lerp: 0.04,        // lower = smoother/slower catch-up (0.04–0.08 sweet spot)
+    duration: 1.5,     // scroll animation duration in seconds
+    smoothWheel: true,
+    wheelMultiplier: 0.8,   // scroll speed (lower = slower, more controlled)
+    touchMultiplier: 1.5,   // touch feel on trackpad
+    infinite: false,
+  }}
+>
       <Header/>
       <AOSInit />
       <div key={pathname} className='max-w-full overflow-hidden'>

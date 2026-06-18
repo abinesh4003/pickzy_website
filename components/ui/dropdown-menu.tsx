@@ -69,6 +69,7 @@ const DropdownMenuContent = React.forwardRef<
         className
       )}
       {...props}
+      data-lenis-prevent
     />
   </DropdownMenuPrimitive.Portal>
 ))

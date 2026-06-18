@@ -369,7 +369,7 @@ export default function PositionsPage() {
       Apply Now <span><ArrowRight className="w-3 h-3 ml-1" /></span>
     </Button>
   </DialogTrigger>
-  <DialogContent className="max-w-[95vw] max-h-[90vh] overflow-y-auto sm:max-w-[400px] md:max-w-[500px] p-3 sm:p-4" onInteractOutside={(e) => e.preventDefault()}>
+  <DialogContent className="max-w-[95vw] max-h-[90vh] overflow-y-auto sm:max-w-[400px] md:max-w-[500px] p-3 sm:p-4" data-lenis-prevent onInteractOutside={(e) => e.preventDefault()}>
     <DialogHeader className="mb-2">
       <DialogTitle className="text-base sm:text-lg">Submit Your Resume</DialogTitle>
     </DialogHeader>
@@ -542,6 +542,7 @@ export default function PositionsPage() {
                     <div
                       className="flex-1 overflow-y-auto p-4 space-y-6 custom-scrollbar break-all"
                       style={{ height: "80%" }}
+                      data-lenis-prevent
                     >
                       {/* Location / Salary / Posted Date */}
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">

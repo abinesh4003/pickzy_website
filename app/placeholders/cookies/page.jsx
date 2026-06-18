@@ -114,7 +114,7 @@ export default function CookiesPolicy() {
     <div className="flex-1 w-full">
       <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3 md:mb-4">3. Types of Cookies We Use</h2>
       
-      <div className="overflow-x-auto -mx-2 sm:-mx-0">
+      <div className="overflow-x-auto -mx-2 sm:-mx-0" data-lenis-prevent>
         <div className="min-w-[320px]">
           <table className="w-full divide-y divide-gray-200 dark:divide-gray-700 text-xs sm:text-sm">
             <thead className="bg-gray-50 dark:bg-gray-700">
