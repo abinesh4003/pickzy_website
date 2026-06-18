@@ -16,7 +16,7 @@ const BAYFAY_APPS = [
     link: 'https://play.google.com/store/apps/details?id=com.bayfay.customer',
     iconBg: 'bg-orange-50',
     name: 'Shop from your neighbourhood',
-    desc: 'Browse and order from trusted local stores within a 5 km radius — groceries, pharmacy, bakery and more, delivered to your door 24×7.',
+    desc: 'Browse and order from trusted local stores within a 5 km radius  groceries, pharmacy, bakery and more, delivered to your door 24×7.',
     dotColor: 'bg-orange-500',
     statBg: 'bg-orange-50',
     statColor: 'text-orange-700',
@@ -44,7 +44,7 @@ const BAYFAY_APPS = [
     iconBg: 'bg-blue-50',
     link: 'https://play.google.com/store/apps/details?id=com.bayfay.merchant',
     name: 'Digitize your shop in minutes',
-    desc: 'Register your store, build a digital storefront, manage inventory and orders — all from one powerful merchant dashboard.',
+    desc: 'Register your store, build a digital storefront, manage inventory and orders  all from one powerful merchant dashboard.',
     dotColor: 'bg-blue-500',
     statBg: 'bg-blue-50',
     statColor: 'text-blue-700',
@@ -54,7 +54,7 @@ const BAYFAY_APPS = [
       'Create and manage your digital storefront instantly',
       'Real-time inventory and stock level management',
       'Accept, prepare and dispatch orders from one place',
-      'B2B wholesale — restock directly from suppliers',
+      'B2B wholesale  restock directly from suppliers',
     ],
     images: [
       { src: '/assets/products/merchantapp/unnamed.webp', alt: 'BayFay Merchant App' },
@@ -77,13 +77,13 @@ const BAYFAY_APPS = [
   //   iconBg: 'bg-purple-50',
   //   link: 'https://play.google.com/store/apps/details?id=com.bayfay.deliveryv2',
   //   name: 'Earn on your own schedule',
-  //   desc: 'Anyone can register as a delivery associate, pick up nearby orders within 5 km and start earning — no fleet needed. Agencies can partner for regional ops.',
+  //   desc: 'Anyone can register as a delivery associate, pick up nearby orders within 5 km and start earning  no fleet needed. Agencies can partner for regional ops.',
   //   dotColor: 'bg-purple-500',
   //   statBg: 'bg-purple-50',
   //   statColor: 'text-purple-700',
   //   stats: [{ val: 'Open', label: 'Anyone can join' }, { val: 'Agency', label: 'Partner program' }],
   //   features: [
-  //     'Register and start delivering — zero barrier to entry',
+  //     'Register and start delivering  zero barrier to entry',
   //     'Pick up orders within your active 5 km zone',
   //     'Live map navigation for efficient routing',
   //     'Delivery agencies can partner for fleet management',
@@ -106,7 +106,7 @@ const STUDIO_FEATURES = [
 const STUDIO_ADVANTAGES = [
   { for: 'Solo Creators', desc: 'Run unlimited channels on autopilot with zero manual production work.' },
   { for: 'Agencies', desc: 'Bundle as your own SaaS product and license to clients at any price point.' },
-  { for: 'Resellers', desc: 'Fully owned, white-label platform — not a subscription, it\'s yours.' },
+  { for: 'Resellers', desc: 'Fully owned, white-label platform  not a subscription, it\'s yours.' },
 ];
 
 // ─── Carousel Component ────────────────────────────────────────
@@ -188,13 +188,13 @@ export default function ProductModal({ isOpen, onClose, type }) {
         </div>
 
         {/* Scrollable body */}
-        <div className="flex-1 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]" data-lenis-prevent>
+        <div className="flex-1 overflow-y-auto hide-scrollbar" data-lenis-prevent>
           {type === 'bayfay' ? (
             <>
               {/* Overview banner */}
               <div className="px-4 md:px-8 py-4 md:py-5 bg-orange-50/50 border-b border-orange-100">
                 <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
-                  <span className="font-bold">Bayfay </span> is an all-in-one hyperlocal digital ecosystem that bridges the gap between local communities, physical merchants, wholesale suppliers, and independent logistics networks — empowering neighborhood stores with digital toolkits and creating a self-sustaining local economy.
+                  <span className="font-bold">Bayfay </span> is an all-in-one hyperlocal digital ecosystem that bridges the gap between local communities, physical merchants, wholesale suppliers, and independent logistics networks  empowering neighborhood stores with digital toolkits and creating a self-sustaining local economy.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 md:gap-6 mt-3 md:mt-4">
                   {[
@@ -214,11 +214,11 @@ export default function ProductModal({ isOpen, onClose, type }) {
               {BAYFAY_APPS.map((app, i) => (
                 <div key={app.id}>
                   <div className="flex flex-col md:flex-row">
-                    {/* Left — carousel */}
+                    {/* Left  carousel */}
                     <div className="w-full md:w-1/2 flex-shrink-0 bg-slate-50 border-b md:border-b-0 md:border-r border-slate-100">
                       <AppCarousel images={app.images} />
                     </div>
-                    {/* Right — content */}
+                    {/* Right  content */}
                     <div className="w-full md:w-1/2 flex flex-col justify-center gap-3 md:gap-4 px-4 md:px-7 py-4 md:py-6">
                       <span className={`text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full border w-fit ${app.tagStyle}`}>
                         {app.tag}
@@ -260,7 +260,7 @@ export default function ProductModal({ isOpen, onClose, type }) {
               {/* Studio overview */}
               <div className="px-4 md:px-8 py-4 md:py-5 bg-purple-50/50 border-b border-purple-100">
                 <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
-                  Shorts Studio is a complete, enterprise-grade AI production pipeline that automates scripting, voiceovers, editing, captioning, thumbnail generation and publishing — all in one self-hosted, white-label ready dashboard. Run unlimited YouTube channels on autopilot.
+                  Shorts Studio is a complete, enterprise-grade AI production pipeline that automates scripting, voiceovers, editing, captioning, thumbnail generation and publishing  all in one self-hosted, white-label ready dashboard. Run unlimited YouTube channels on autopilot.
                 </p>
               </div>
 

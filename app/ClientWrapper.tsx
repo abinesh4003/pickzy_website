@@ -14,28 +14,25 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
   const pathname = usePathname();
 
   return (
-    <div className="min-h-screen flex flex-col max-w-screen">
- <ReactLenis
-  root
+    <ReactLenis
+      root
   options={{
-    lerp: 0.04,        // lower = smoother/slower catch-up (0.04–0.08 sweet spot)
-    duration: 1.5,     // scroll animation duration in seconds
-    smoothWheel: true,
-    wheelMultiplier: 0.8,   // scroll speed (lower = slower, more controlled)
-    touchMultiplier: 1.5,   // touch feel on trackpad
-    infinite: false,
-  }}
->
-      <Header/>
-      <AOSInit />
-      <div key={pathname} className='max-w-full overflow-hidden'>
-        {children}
+        lerp: 0.08,
+        duration: 1.4,
+        smoothWheel: true,
+      }}
+    >
+      <div className="min-h-screen flex flex-col max-w-screen">
+        <Header />
+        <AOSInit />
+        <div key={pathname} className="max-w-full overflow-hidden">
+          {children}
+        </div>
+        <ScrollToTop />
+        <Toast />
+        <GlobalLoader />
+        <Footer />
       </div>
-      <ScrollToTop />
-      <Toast />
-      <GlobalLoader/>
-      <Footer/>
-      </ReactLenis>
-    </div>
+    </ReactLenis>
   );
 }

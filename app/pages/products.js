@@ -137,7 +137,7 @@ md:leading-[1.05] text-slate-900 text-center" data-aos="fade-down" data-aos-dela
           </h1>
 
           <p className="mt-4 sm:mt-8 text-base sm:text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="300">
-            Two products. One mission — build tools that empower local economies and digital creators at scale.
+            Two products. One mission  build tools that empower local economies and digital creators at scale.
           </p>
 
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mt-6 sm:mt-10">
@@ -176,7 +176,7 @@ md:leading-[1.05] text-slate-900 text-center" data-aos="fade-down" data-aos-dela
           </p>
           <p>
             Our second product, <strong>Shorts Studio</strong>, is an AI‑powered video production pipeline that automates
-            the entire YouTube content creation process — from scripting to publishing. It’s designed for creators, agencies,
+            the entire YouTube content creation process  from scripting to publishing. It’s designed for creators, agencies,
             and SaaS resellers who want to run multiple channels on autopilot.
           </p>
           <p>
@@ -217,7 +217,7 @@ md:leading-[1.05] text-slate-900 text-center" data-aos="fade-down" data-aos-dela
                 Bay<span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-400">Fay</span>
               </h2>
               <p className="text-sm sm:text-lg leading-relaxed">
-                A 24×7 hyperlocal delivery ecosystem that digitises neighbourhood stores, connects wholesale suppliers, and lets anyone earn as a delivery partner — all within a 5 km radius.
+                A 24×7 hyperlocal delivery ecosystem that digitises neighbourhood stores, connects wholesale suppliers, and lets anyone earn as a delivery partner  all within a 5 km radius.
               </p>
             </div>
 
@@ -226,7 +226,7 @@ md:leading-[1.05] text-slate-900 text-center" data-aos="fade-down" data-aos-dela
                 { icon: <MapPin size={16} />, text: 'Shop from stores within 5 km of your location', bg: 'bg-orange-50', color: 'text-orange-600' },
                 { icon: <Store size={16} />, text: 'Merchant dashboard to digitise inventory & deliveries', bg: 'bg-blue-50', color: 'text-blue-600' },
                 { icon: <Package size={16} />, text: 'B2B wholesale channel for retail restocking', bg: 'bg-emerald-50', color: 'text-emerald-600' },
-                { icon: <Bike size={16} />, text: 'Open logistics — anyone can earn as a delivery partner', bg: 'bg-purple-50', color: 'text-purple-600' },
+                { icon: <Bike size={16} />, text: 'Open logistics  anyone can earn as a delivery partner', bg: 'bg-purple-50', color: 'text-purple-600' },
                 { icon: <Handshake size={16} />, text: 'Delivery agency partnerships for regional fleet ops', bg: 'bg-pink-50', color: 'text-pink-600' },
               ].map((f) => (
                 <li key={f.text} className="flex items-center gap-3 sm:gap-4">
@@ -290,7 +290,7 @@ md:leading-[1.05] text-slate-900 text-center" data-aos="fade-down" data-aos-dela
                 </span>
               </h2>
               <p className="text-sm sm:text-lg leading-relaxed text-slate-600">
-                An enterprise-grade, self-hosted AI production pipeline that automates scripting, voiceovers, editing, captions, thumbnails, and publishing — run unlimited YouTube channels on autopilot.
+                An enterprise-grade, self-hosted AI production pipeline that automates scripting, voiceovers, editing, captions, thumbnails, and publishing  run unlimited YouTube channels on autopilot.
               </p>
             </div>
 
@@ -299,7 +299,7 @@ md:leading-[1.05] text-slate-900 text-center" data-aos="fade-down" data-aos-dela
                 { icon: <Bot size={16} />, text: '7-step AI pipeline: script → voice → edit → publish', bg: 'bg-purple-50', color: 'text-purple-600' },
                 { icon: <BarChart2 size={16} />, text: 'Multi-channel dashboard with RPM-aware analytics', bg: 'bg-blue-50', color: 'text-blue-600' },
                 { icon: <Clapperboard size={16} />, text: 'Supports 9:16 Shorts and 16:9 long-form videos', bg: 'bg-pink-50', color: 'text-pink-600' },
-                { icon: <Tag size={16} />, text: 'White-label ready — deploy under your own brand', bg: 'bg-orange-50', color: 'text-orange-600' },
+                { icon: <Tag size={16} />, text: 'White-label ready  deploy under your own brand', bg: 'bg-orange-50', color: 'text-orange-600' },
                 { icon: <RefreshCw size={16} />, text: '1-click manual review queue before every publish', bg: 'bg-emerald-50', color: 'text-emerald-600' },
               ].map((f) => (
                 <li key={f.text} className="flex items-center gap-3 sm:gap-4">
@@ -359,7 +359,7 @@ md:leading-[1.05] text-slate-900 text-center" data-aos="fade-down" data-aos-dela
                 </span>
               </h3>
               <p className="text-slate-500 text-sm sm:text-lg max-w-md mx-auto leading-relaxed">
-                Whether you want to list your store on BayFay or license Shorts Studio for your agency — we'd love to talk.
+                Whether you want to list your store on BayFay or license Shorts Studio for your agency  we'd love to talk.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 pt-2">
                 <Link
@@ -392,11 +392,11 @@ md:leading-[1.05] text-slate-900 text-center" data-aos="fade-down" data-aos-dela
           </div>
           <div className="space-y-4">
             {[
-              { q: 'What is BayFay?', a: 'BayFay is a 24×7 hyperlocal delivery ecosystem that digitises neighbourhood stores, connects wholesale suppliers, and lets anyone earn as a delivery partner — all within a 5 km radius.', color: 'text-orange-500' },
+              { q: 'What is BayFay?', a: 'BayFay is a 24×7 hyperlocal delivery ecosystem that digitises neighbourhood stores, connects wholesale suppliers, and lets anyone earn as a delivery partner  all within a 5 km radius.', color: 'text-orange-500' },
               { q: 'Is BayFay free to use?', a: 'BayFay is free for customers. Merchants and delivery partners can sign up with a nominal subscription or commission‑based model. Visit bayfay.com for details.', color: 'text-orange-500', link: { text: 'bayfay.com', href: 'https://bayfay.com', cls: 'text-orange-500 underline' } },
               { q: 'How can I register my store on BayFay?', a: 'Download the BayFay Merchant App, register your store with basic details, upload your product catalogue, and go live within minutes. The merchant dashboard lets you manage inventory, orders, and deliveries all in one place.', color: 'text-orange-500' },
-              { q: 'How can I become a delivery partner on BayFay?', a: 'Anyone can join as a BayFay delivery partner — there is zero barrier to entry. Simply download the BayFay Delivery App, complete your registration, and start accepting orders within your 5 km zone.', color: 'text-orange-500' },
-              { q: 'In which cities is BayFay available?', a: 'BayFay is currently expanding across India. The platform works in any city or town — merchants can register and go live in any location, and customers can shop from stores within a 5 km radius of their current location.', color: 'text-orange-500' },
+              { q: 'How can I become a delivery partner on BayFay?', a: 'Anyone can join as a BayFay delivery partner  there is zero barrier to entry. Simply download the BayFay Delivery App, complete your registration, and start accepting orders within your 5 km zone.', color: 'text-orange-500' },
+              { q: 'In which cities is BayFay available?', a: 'BayFay is currently expanding across India. The platform works in any city or town  merchants can register and go live in any location, and customers can shop from stores within a 5 km radius of their current location.', color: 'text-orange-500' },
             ].map(({ q, a, color }) => (
               <details key={q} className="group border-b border-slate-100 pb-4">
                 <summary className="flex items-center justify-between text-sm sm:text-base font-semibold text-slate-700 cursor-pointer list-none">
@@ -417,9 +417,9 @@ md:leading-[1.05] text-slate-900 text-center" data-aos="fade-down" data-aos-dela
           </div>
           <div className="space-y-4">
             {[
-              { q: 'What is Shorts Studio?', a: 'Shorts Studio is an enterprise-grade, self‑hosted AI production pipeline that automates scripting, voiceovers, editing, captions, thumbnails, and publishing — run unlimited YouTube channels on autopilot.', color: 'text-purple-500' },
+              { q: 'What is Shorts Studio?', a: 'Shorts Studio is an enterprise-grade, self‑hosted AI production pipeline that automates scripting, voiceovers, editing, captions, thumbnails, and publishing  run unlimited YouTube channels on autopilot.', color: 'text-purple-500' },
               { q: 'Who can use Shorts Studio?', a: 'Solo creators, YouTube agencies, and SaaS resellers. Shorts Studio is fully white‑label and self‑hosted, so you can deploy it under your own brand and license it to clients at any price point.', color: 'text-purple-500' },
-              { q: 'How much does Shorts Studio cost?', a: 'Shorts Studio is available as a one-time self-hosted license — you own it outright with no recurring subscriptions. Pricing varies based on deployment tier and features. Contact us to get a custom quote.', color: 'text-purple-500' },
+              { q: 'How much does Shorts Studio cost?', a: 'Shorts Studio is available as a one-time self-hosted license  you own it outright with no recurring subscriptions. Pricing varies based on deployment tier and features. Contact us to get a custom quote.', color: 'text-purple-500' },
               { q: 'Can I deploy Shorts Studio on my own server?', a: 'Absolutely. Shorts Studio is fully self‑hosted. You get the complete source code and can run it on your own VPS with your own branding, domain, and pricing.', color: 'text-purple-500' },
             ].map(({ q, a, color }) => (
               <details key={q} className="group border-b border-slate-100 pb-4">
