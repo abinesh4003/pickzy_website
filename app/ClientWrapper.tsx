@@ -12,6 +12,7 @@ import { ReactLenis } from "lenis/react";
 
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const isAiTrader = pathname === '/product/ai-trader';
 
   return (
     <ReactLenis
@@ -23,7 +24,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
       }}
     >
       <div className="min-h-screen flex flex-col max-w-screen">
-        <Header />
+        {!isAiTrader && <Header />}
         <AOSInit />
         <div key={pathname} className="max-w-full overflow-hidden">
           {children}
@@ -31,7 +32,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
         <ScrollToTop />
         <Toast />
         <GlobalLoader />
-        <Footer />
+        {!isAiTrader && <Footer />}
       </div>
     </ReactLenis>
   );

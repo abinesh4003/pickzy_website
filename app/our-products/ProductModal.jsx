@@ -69,30 +69,34 @@ const BAYFAY_APPS = [
       { src: '/assets/products/merchantapp/unnamed (9).webp', alt: 'BayFay Merchant App 2' },
     ],
   },
-  // {
-  //   id: 'delivery',
-  //   tag: 'Delivery App',
-  //   tagStyle: 'text-purple-700 bg-purple-50 border-purple-200',
-  //   icon: '🚴',
-  //   iconBg: 'bg-purple-50',
-  //   link: 'https://play.google.com/store/apps/details?id=com.bayfay.deliveryv2',
-  //   name: 'Earn on your own schedule',
-  //   desc: 'Anyone can register as a delivery associate, pick up nearby orders within 5 km and start earning  no fleet needed. Agencies can partner for regional ops.',
-  //   dotColor: 'bg-purple-500',
-  //   statBg: 'bg-purple-50',
-  //   statColor: 'text-purple-700',
-  //   stats: [{ val: 'Open', label: 'Anyone can join' }, { val: 'Agency', label: 'Partner program' }],
-  //   features: [
-  //     'Register and start delivering  zero barrier to entry',
-  //     'Pick up orders within your active 5 km zone',
-  //     'Live map navigation for efficient routing',
-  //     'Delivery agencies can partner for fleet management',
-  //   ],
-  //   images: [
-  //     { src: '/assets/products/bayfay_delivery.jpg', alt: 'BayFay Delivery App' },
-  //     { src: '/assets/products/bayfay_delivery2.jpg', alt: 'BayFay Delivery App 2' },
-  //   ],
-  // },
+  {
+    id: 'delivery',
+    tag: 'Delivery App',
+    tagStyle: 'text-purple-700 bg-purple-50 border-purple-200',
+    icon: '🚴',
+    iconBg: 'bg-purple-50',
+    link: 'https://play.google.com/store/apps/details?id=com.bayfay.deliveryv2',
+    name: 'Earn on your own schedule',
+    desc: 'Anyone can register as a delivery associate, pick up nearby orders within 5 km and start earning  no fleet needed. Agencies can partner for regional ops.',
+    dotColor: 'bg-purple-500',
+    statBg: 'bg-purple-50',
+    statColor: 'text-purple-700',
+    stats: [{ val: 'Open', label: 'Anyone can join' }, { val: 'Agency', label: 'Partner program' }],
+    features: [
+      'Register and start delivering  zero barrier to entry',
+      'Pick up orders within your active 5 km zone',
+      'Live map navigation for efficient routing',
+      'Delivery agencies can partner for fleet management',
+    ],
+    images: [
+      { src: '/assets/products/deliveryapp/unnamed.webp', alt: 'BayFay Delivery App' },
+      { src: '/assets/products/deliveryapp/unnamed (1).webp', alt: 'BayFay Delivery App 2' },
+       { src: '/assets/products/deliveryapp/unnamed (2).webp', alt: 'BayFay Delivery App 2' },
+        { src: '/assets/products/deliveryapp/unnamed (3).webp', alt: 'BayFay Delivery App 2' },
+         { src: '/assets/products/deliveryapp/unnamed (4).webp', alt: 'BayFay Delivery App 2' },
+
+    ],
+  },
 ];
 
 const STUDIO_FEATURES = [

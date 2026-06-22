@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+.wrap {
+  font-family: 'DM Sans', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.wrap :global(.font-mono) {
+  font-family: 'Space Mono', monospace;
+}
+
+.wrap :global(.reveal) {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.wrap :global(.reveal.in) {
+  opacity: 1;
+  transform: translateY(0);
+}
