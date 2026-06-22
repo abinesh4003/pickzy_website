@@ -1,5 +1,5 @@
 'use client';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import useEmblaCarousel from 'embla-carousel-react';
@@ -11,6 +11,33 @@ import {
   ChevronLeft, ChevronRight, ArrowRight, ExternalLink,
   TrendingUp, ShieldCheck, ScanSearch, LineChart, LayoutDashboard,
 } from 'lucide-react';
+
+const NAV_ITEMS = [
+  {
+    id: 'bayfay',
+    label: 'BayFay',
+    activeColor: 'text-orange-500',
+    activeLine: 'bg-orange-500',
+    activeBg: 'bg-orange-50/70',
+    hoverColor: 'hover:text-orange-500',
+  },
+  {
+    id: 'shorts',
+    label: 'Shorts Studio',
+    activeColor: 'text-purple-500',
+    activeLine: 'bg-purple-500',
+    activeBg: 'bg-purple-50/70',
+    hoverColor: 'hover:text-purple-500',
+  },
+  {
+    id: 'aitrader',
+    label: 'AI Trader',
+    activeColor: 'text-[#0073e6]',
+    activeLine: 'bg-[#0073e6]',
+    activeBg: 'bg-blue-50/70',
+    hoverColor: 'hover:text-[#0073e6]',
+  },
+];
 
 const bayfaySlides = [
   { src: '/assets/products/bayfay_model.jpg', alt: 'BayFay App Home' },
@@ -41,7 +68,7 @@ function ProductSlider({ slides }) {
   const next = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
   return (
-    <div className="relative group transition-all duration-500 hover:-translate-y-2">
+    <div className="relative group transition-all duration-500 hover:-translate-y-1">
       <div className="absolute -inset-4 bg-gradient-to-r from-orange-200 via-blue-100 to-purple-200 rounded-3xl blur-2xl opacity-20 group-hover:opacity-35 transition-opacity duration-500 pointer-events-none" />
       <div className="relative rounded-[32px] overflow-hidden bg-white/80 backdrop-blur-xl border border-white/60 shadow-[0_25px_80px_rgba(15,23,42,0.12)]">
         <div className="overflow-hidden" ref={emblaRef}>
@@ -62,8 +89,6 @@ function ProductSlider({ slides }) {
             ))}
           </div>
         </div>
-
-        {/* Navigation buttons */}
         <button
           onClick={prev}
           className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 backdrop-blur-sm border border-slate-100 shadow-md flex items-center justify-center text-slate-600 hover:text-slate-900 hover:scale-110 transition-all duration-200 opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
@@ -84,18 +109,102 @@ function ProductSlider({ slides }) {
 // ─── Main Component ────────────────────────────────────────────
 export default function ProductsPage() {
   const [modal, setModal] = useState(null);
+  const [activeSection, setActiveSection] = useState(null);
+  const subNavRef = useRef(null);
+
+  // ── IntersectionObserver: update active tab as user scrolls ──
+  useEffect(() => {
+    const sectionIds = NAV_ITEMS.map((n) => n.id);
+    const observers = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        {
+          // Fire when section top enters the middle band of the viewport
+          rootMargin: '-40% 0px -50% 0px',
+          threshold: 0,
+        }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  // ── Click: scroll to section with correct offset ──
+  function handleNavClick(e, id) {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    // Measure actual subnav height + main navbar height dynamically
+    const subNavH = subNavRef.current?.offsetHeight ?? 48;
+    // Your main navbar is fixed at top-0; measure it or hardcode its height
+    const mainNavH = 64; // adjust if your navbar height differs
+    const offset = mainNavH + subNavH;
+
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+
+    const lenis = window.__lenis;
+    if (lenis) {
+      lenis.scrollTo(top, { duration: 1.4 });
+    } else {
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    setActiveSection(id);
+  }
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 antialiased">
 
+      {/* ── STICKY SUB NAV ── */}
+      <div
+        ref={subNavRef}
+        data-lenis-prevent
+        className="fixed top-[72px] z-40 px-4 left-0 right-0"
+      >
+        <div className="max-w-3xl mx-auto bg-white border border-slate-200 rounded-2xl shadow-[0_4px_24px_rgba(15,23,42,0.08)] overflow-hidden">
+          <div className="flex items-center justify-center">
+            {NAV_ITEMS.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(e) => handleNavClick(e, item.id)}
+                  className={`relative flex-1 text-center px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-200 whitespace-nowrap
+                    ${isActive
+                      ? `${item.activeColor} ${item.activeBg}`
+                      : `text-slate-400 ${item.hoverColor}`}
+                  `}
+                >
+                  {item.label}
+                  {isActive && (
+                    <span className={`absolute bottom-0 left-0 right-0 h-[2.5px] ${item.activeLine} rounded-t-full`} />
+                  )}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
       {/* HERO */}
       <section
-        aria-label="Products hero"
-        className="relative overflow-hidden min-h-[520px] sm:min-h-[620px] md:min-h-[720px] flex items-center justify-center px-4 sm:px-6"
-      >
+  aria-label="Products hero"
+  className="relative overflow-hidden min-h-[520px] sm:min-h-[620px] md:min-h-[720px] flex items-center justify-center px-4 sm:px-6 pt-16"
+>
+
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/assets/products/product_hero1.png')" }}
+          style={{ backgroundImage: "url('/assets/products/product_hero.png')" }}
           role="img"
           aria-label="Products hero background"
         />
@@ -139,8 +248,7 @@ export default function ProductsPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-5 sm:px-8 py-2.5 sm:py-4 rounded-2xl font-semibold shadow-[0_10px_40px_rgba(249,115,22,0.35)] text-sm sm:text-base"
             >
-              Explore BayFay
-              <ArrowRight size={16} />
+              Explore BayFay <ArrowRight size={16} />
             </Link>
             <Link
               href="https://support.pickzy.com/"
@@ -148,19 +256,18 @@ export default function ProductsPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white/90 border border-slate-200 text-slate-700 px-5 sm:px-8 py-2.5 sm:py-4 rounded-2xl shadow-lg text-sm sm:text-base"
             >
-              Explore Shorts Studio
-              <ExternalLink size={15} />
+              Explore Shorts Studio <ExternalLink size={15} />
             </Link>
           </div>
         </div>
       </section>
 
       {/* INTRO */}
-      <section className="max-w-4xl mx-auto px-4 py-10 sm:py-12 ">
+      <section className="max-w-4xl mx-auto px-4 py-10 sm:py-12">
         <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-800 text-center">
           Three Flagship Products, One Mission
         </h2>
-        <div className="mt-6 space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed text-justify md:text-center ">
+        <div className="mt-6 space-y-4 text-base sm:text-lg text-slate-600 leading-relaxed text-justify md:text-center">
           <p>
             <strong>PickZy Interactive</strong> builds software that empowers local economies, digital creators, and systematic traders at scale.
             Our first product, <strong>BayFay</strong>, is a complete hyperlocal marketplace that brings neighbourhood stores,
@@ -179,7 +286,7 @@ export default function ProductsPage() {
       </section>
 
       {/* PRODUCT 1: BAYFAY */}
-      <section id="bayfay" className="relative overflow-hidden px-4 sm:px-6 py-12 sm:py-20 md:py-28">
+      <section id="bayfay" className="relative overflow-hidden px-4 sm:px-6 py-12 sm:py-20 md:py-28 scroll-mt-[108px]">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50/60 via-white to-blue-50/40 pointer-events-none" />
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-100/50 rounded-full blur-3xl pointer-events-none" />
 
@@ -261,7 +368,7 @@ export default function ProductsPage() {
       </div>
 
       {/* PRODUCT 2: SHORTS STUDIO */}
-      <section id="shorts" className="relative overflow-hidden px-4 sm:px-6 py-12 sm:py-20 md:py-28">
+      <section id="shorts" className="relative overflow-hidden px-4 sm:px-6 py-12 sm:py-20 md:py-28 scroll-mt-[108px]">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-100 via-sky-50 to-pink-100 pointer-events-none" />
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-100/40 rounded-full blur-3xl pointer-events-none" />
 
@@ -333,7 +440,7 @@ export default function ProductsPage() {
       </div>
 
       {/* PRODUCT 3: AI TRADER */}
-      <section id="aitrader" className="relative overflow-hidden px-4 sm:px-6 py-12 sm:py-20 md:py-28">
+      <section id="aitrader" className="relative overflow-hidden px-4 sm:px-6 py-12 sm:py-20 md:py-28 scroll-mt-[108px]">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 pointer-events-none" />
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-3xl pointer-events-none" />
 
@@ -358,7 +465,7 @@ export default function ProductsPage() {
               </span>
               <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-[-0.05em] text-slate-900">
                 AI{' '}
-                <span className="bg-gradient-to-r from-[#0073e6] to-cyan-500  bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#0073e6] to-cyan-500 bg-clip-text text-transparent">
                   Trader
                 </span>
               </h2>
@@ -386,27 +493,12 @@ export default function ProductsPage() {
 
             <div className="flex flex-wrap gap-2 sm:gap-3">
               <Link
-                href="/product/ai-trader" target='_blank'
+                href="/product/ai-trader"
+                target="_blank"
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0073e6] to-cyan-500 hover:scale-105 text-white font-semibold px-4 sm:px-7 py-2.5 sm:py-3.5 rounded-2xl shadow-[0_10px_40px_rgba(0,115,230,0.30)] transition-all duration-300 text-sm"
-              >
-                {/* Request a Quote  */}
-                {/* <ArrowRight size={15} /> */}
-                See How It Works
-                
-                 <ExternalLink size={13}/>
-              </Link>
-              {/* <Link
-                href="/contact-us"
-                className="inline-flex items-center gap-2 border border-slate-200 hover:border-slate-300 bg-white text-slate-600 text-sm font-medium px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-xl hover:bg-slate-50 transition-all duration-200"
               >
                 See How It Works <ExternalLink size={13} />
               </Link>
-              <button
-                onClick={() => setModal('aitrader')}
-                className="inline-flex items-center gap-2 border border-teal-200 text-teal-600 bg-teal-50 px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-teal-100 transition-colors"
-              >
-                Learn more
-              </button> */}
             </div>
 
             <p className="text-xs text-slate-400">
@@ -422,7 +514,6 @@ export default function ProductsPage() {
           <div className="relative overflow-hidden rounded-[40px] bg-gradient-to-br from-orange-50 via-pink-50 to-violet-100 border border-orange-100 px-5 sm:px-10 py-12 sm:py-24 text-center shadow-xl">
             <div className="absolute -top-20 -left-20 w-96 h-96 bg-orange-300/30 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-violet-300/30 rounded-full blur-3xl pointer-events-none" />
-
             <div className="relative space-y-4 sm:space-y-6">
               <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-orange-500 bg-white border border-orange-200 shadow-sm px-4 py-1.5 rounded-full">
                 <Handshake size={13} /> Let's Build Together
@@ -439,7 +530,7 @@ export default function ProductsPage() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 pt-2">
                 <Link
                   href="/contact-us"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500 hover:from-orange-600 hover:via-pink-600 hover:to-violet-600 hover:scale-105 text-white font-semibold px-6 sm:px-9 py-2.5 sm:py-4 rounded-2xl shadow-[0_10px_40px_rgba(236,72,153,0.25)] transition-all duration-300 text-sm sm:text-base"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500 hover:scale-105 text-white font-semibold px-6 sm:px-9 py-2.5 sm:py-4 rounded-2xl shadow-[0_10px_40px_rgba(236,72,153,0.25)] transition-all duration-300 text-sm sm:text-base"
                 >
                   Get in touch <ArrowRight size={16} />
                 </Link>
@@ -461,7 +552,6 @@ export default function ProductsPage() {
           Frequently Asked Questions
         </h2>
 
-        {/* BayFay */}
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-5">
             <span className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center text-base">🛒</span>
@@ -486,7 +576,6 @@ export default function ProductsPage() {
           </div>
         </div>
 
-        {/* Shorts Studio */}
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-5">
             <span className="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center text-base">🎬</span>
@@ -510,7 +599,6 @@ export default function ProductsPage() {
           </div>
         </div>
 
-        {/* AI Trader */}
         <div>
           <div className="flex items-center gap-3 mb-5">
             <span className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-base">📈</span>

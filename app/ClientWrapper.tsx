@@ -26,7 +26,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
       <div className="min-h-screen flex flex-col max-w-screen">
         {!isAiTrader && <Header />}
         <AOSInit />
-        <div key={pathname} className="max-w-full overflow-hidden">
+        <div key={pathname} className="max-w-full">
           {children}
         </div>
         <ScrollToTop />
