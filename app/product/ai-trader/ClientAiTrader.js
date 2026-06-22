@@ -170,10 +170,7 @@ export default function ClientAiTrader() {
               <i className="w-2.5 h-2.5 rounded-full bg-[#febc2e]"></i>
               <i className="w-2.5 h-2.5 rounded-full bg-[#28c840]"></i>
             </div>
-            <picture>
-              <source srcSet="/assets/products/aitrader/image1.webp" type="image/webp" />
-              <img src="/assets/products/aitrader/image1.webp" alt="AI Trader live signal-scanning dashboard" width="2880" height="2632" fetchPriority="high" className="w-full block" />
-            </picture>
+            <img src="/assets/products/aitrader/Image1.webp" alt="AI Trader live signal-scanning dashboard" width="2880" height="2632" fetchPriority="high" className="w-full block" />
           </div>
         </div>
 
@@ -304,10 +301,7 @@ export default function ClientAiTrader() {
               </ul>
             </div>
             <div className="rounded-[14px] overflow-hidden shadow-[0_20px_60px_rgba(26,34,51,0.16)] border border-[#e0e4ea]">
-              <picture>
-                <source srcSet="/assets/products/aitrader/image1 (1).webp" type="image/webp" />
-                <img src="/assets/products/aitrader/image1 (1).webp" alt="AI Trader signal dashboard screenshot" width="2880" height="2632" loading="lazy" className="w-full" />
-              </picture>
+              <img src="/assets/products/aitrader/Image1 (1).webp" alt="AI Trader signal dashboard screenshot" width="2880" height="2632" loading="lazy" className="w-full" />
             </div>
           </div>
 
@@ -324,10 +318,7 @@ export default function ClientAiTrader() {
               </ul>
             </div>
             <div className="md:order-1 rounded-[14px] overflow-hidden shadow-[0_20px_60px_rgba(26,34,51,0.16)] border border-[#e0e4ea]">
-              <picture>
-                <source srcSet="/assets/products/aitrader/image2.webp" type="image/webp" />
-                <img src="/assets/products/aitrader/image2.webp" alt="AI Trader auto stock selector screenshot" width="2880" height="3658" loading="lazy" className="w-full" />
-              </picture>
+              <img src="/assets/products/aitrader/Image2.webp" alt="AI Trader auto stock selector screenshot" width="2880" height="3658" loading="lazy" className="w-full" />
             </div>
           </div>
 
@@ -344,10 +335,7 @@ export default function ClientAiTrader() {
               </ul>
             </div>
             <div className="rounded-[14px] overflow-hidden shadow-[0_20px_60px_rgba(26,34,51,0.16)] border border-[#e0e4ea]">
-              <picture>
-                <source srcSet="/assets/products/aitrader/image3.webp" type="image/webp" />
-                <img src="/assets/products/aitrader/image3.webp" alt="AI Trader strategy backtester screenshot" width="2880" height="4256" loading="lazy" className="w-full" />
-              </picture>
+              <img src="/assets/products/aitrader/Image3.webp" alt="AI Trader strategy backtester screenshot" width="2880" height="4256" loading="lazy" className="w-full" />
             </div>
           </div>
         </div>
